@@ -27,6 +27,8 @@ def workflow_key(event):
 
     if "earnings" in topic:
         return "earnings_update"
+    if "merger" in topic or "regulatory" in topic or "catalyst" in output_type:
+        return "event_driven_catalyst_update"
     if "diligence" in topic or "data_room" in asset_type or "ic_memo" in output_type:
         return "diligence_or_ic_prep"
     if "monthly" in topic or "variance" in output_type:

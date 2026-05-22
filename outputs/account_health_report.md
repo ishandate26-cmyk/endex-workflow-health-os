@@ -42,7 +42,7 @@ Recommended actions:
   - Next move: Within 24 hours, ask the user to mark the first unusable line or number. Diagnose whether the blocker was unsupported sourcing, wrong format for the reviewer, weak explanation, or a number they could not tie back to the file.
 - **Same job appears once but does not repeat**
   - Read: The first run was interesting, but it did not attach to a live operating cadence
-  - Next move: Find the next real deadline for the same job: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad.
+  - Next move: Find the next real deadline for the same job: earnings print, catalyst update, IC meeting, board pack, monthly close, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad.
 - **Repeated user overrides**
   - Read: Endex is learning the wrong version of how the customer wants the work done
   - Next move: Pull the before/after diff. Ask which edits are personal style, which are firm standard, and which are factual corrections. Convert firm-standard edits into saved preferences; route factual corrections to product or evals.
@@ -53,7 +53,7 @@ Recommended actions:
 - Stage: trial
 - Primary buyer: Senior Analyst
 - Health score: 8 / 100 (stalled)
-- Inferred repeated-work patterns: earnings_update (3)
+- Inferred repeated-work patterns: event_driven_catalyst_update (3)
 - Signals: 0 repeat-use events, 0 exports, 0 saved-preference reuse events, 1 corrections/overrides, 0 reviewer signals
 
 Recommended actions:
@@ -62,7 +62,7 @@ Recommended actions:
   - Next move: Within 24 hours, ask the user to mark the first unusable line or number. Diagnose whether the blocker was unsupported sourcing, wrong format for the reviewer, weak explanation, or a number they could not tie back to the file.
 - **Same job appears once but does not repeat**
   - Read: The first run was interesting, but it did not attach to a live operating cadence
-  - Next move: Find the next real deadline for the same job: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad.
+  - Next move: Find the next real deadline for the same job: earnings print, catalyst update, IC meeting, board pack, monthly close, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad.
 - **One active user and no reviewer adoption**
   - Read: The account can still die if the champion gets busy, leaves, or cannot persuade the reviewer
   - Next move: Ask the champion who consumes the output today. Create a version for that person: PM summary, MD memo, CFO variance note, or principal review packet. Get that reviewer into the next run.

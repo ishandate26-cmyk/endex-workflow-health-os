@@ -12,9 +12,9 @@ E010,2026-05-04,A003,U005,file_uploaded,actuals_export,monthly reporting,varianc
 E011,2026-05-04,A003,U005,analysis_generated,actuals_export,monthly reporting,variance_summary,true,false,true,false,false,edited mapping and comments
 E012,2026-05-10,A003,U005,analysis_generated,actuals_export,monthly reporting,variance_summary,true,false,true,false,false,second attempt still overridden
 E013,2026-05-12,A003,U006,reviewer_invited,variance_summary,monthly reporting,variance_summary,true,false,false,true,false,VP invited but no export
-E014,2026-05-06,A004,U007,file_uploaded,excel_model,retail earnings,model_update,false,false,false,false,false,uploaded model
-E015,2026-05-06,A004,U007,analysis_generated,excel_model,retail earnings,model_update,true,false,true,false,false,analysis generated but not exported
-E016,2026-05-20,A004,U007,file_uploaded,excel_model,software earnings,model_update,false,false,false,false,false,new workflow started no completion
+E014,2026-05-06,A004,U007,file_uploaded,excel_model,merger spread update,model_update,false,false,false,false,false,uploaded event model
+E015,2026-05-06,A004,U007,analysis_generated,excel_model,merger spread update,catalyst_update,true,false,true,false,false,analysis generated but not exported
+E016,2026-05-20,A004,U007,file_uploaded,filing,regulatory approval update,catalyst_update,false,false,false,false,false,new catalyst work started no completion
 E017,2026-05-07,A005,U008,file_uploaded,data_room,Project Atlas diligence,quality_of_earnings,false,false,false,false,false,uploaded QoE files
 E018,2026-05-08,A005,U008,analysis_generated,data_room,Project Atlas diligence,quality_of_earnings,true,false,false,false,true,output exported
 E019,2026-05-19,A005,U008,workflow_rerun,data_room,Project Nova diligence,quality_of_earnings,true,true,false,false,true,reused diligence analysis
@@ -24,4 +24,3 @@ E022,2026-05-15,A006,U010,reviewer_opened,board_pack,board reporting,board_pack,
 E023,2026-05-21,A006,U009,workflow_rerun,planning_model,board reporting,board_pack,true,true,false,true,true,next board cycle rerun
 E024,2026-05-22,A001,U001,workflow_rerun,excel_model,MSFT earnings,pm_summary,true,true,false,true,true,third earnings workflow rerun
 E025,2026-05-22,A001,U002,reviewer_opened,summary,MSFT earnings,pm_summary,true,true,false,false,false,PM reviewed third rerun
-

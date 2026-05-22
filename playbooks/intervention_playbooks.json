@@ -7,7 +7,7 @@
   "saved_not_rerun": {
     "signal": "Same job appears once but does not repeat",
     "likely_meaning": "The first run was interesting, but it did not attach to a live operating cadence",
-    "cs_action": "Find the next real deadline for the same job: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad."
+    "cs_action": "Find the next real deadline for the same job: earnings print, catalyst update, IC meeting, board pack, monthly close, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad."
   },
   "heavy_overrides": {
     "signal": "Repeated user overrides",
