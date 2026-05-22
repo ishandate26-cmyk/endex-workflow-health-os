@@ -20,7 +20,7 @@ def bool_value(value):
 
 
 def workflow_key(event):
-    """Infer workflow clusters from behavior, not a predefined workflow field."""
+    """Infer repeated-work patterns from behavior, not a predefined workflow field."""
     topic = event["topic"].lower()
     output_type = event["output_type"].lower()
     asset_type = event["asset_type"].lower()
@@ -109,7 +109,7 @@ def write_account_report(accounts, grouped_events, playbooks):
     lines = [
         "# Account Health Report",
         "",
-        "This report scores whether open-ended product usage is becoming recurring workflow adoption.",
+        "This report scores whether open-ended product usage is turning into repeated work that customers trust.",
         "",
     ]
 
@@ -127,8 +127,8 @@ def write_account_report(accounts, grouped_events, playbooks):
                 f"- Stage: {account['stage']}",
                 f"- Primary buyer: {account['primary_buyer']}",
                 f"- Health score: {metrics['score']} / 100 ({health_label(metrics['score'])})",
-                f"- Inferred workflows: {workflows}",
-                f"- Signals: {metrics['reruns']} reruns, {metrics['exports']} exports, {metrics['memory']} memory reuse events, {metrics['overrides']} overrides, {metrics['reviewers']} reviewer signals",
+                f"- Inferred repeated-work patterns: {workflows}",
+                f"- Signals: {metrics['reruns']} repeat-use events, {metrics['exports']} exports, {metrics['memory']} saved-preference reuse events, {metrics['overrides']} corrections/overrides, {metrics['reviewers']} reviewer signals",
                 "",
             ]
         )
@@ -151,7 +151,7 @@ def write_expansion_report(accounts, grouped_events):
     lines = [
         "# Expansion Opportunities",
         "",
-        "Accounts become expansion candidates when workflows rerun, memory is reused, outputs are exported, and reviewers enter the loop.",
+        "Accounts become expansion candidates when similar work repeats, saved preferences are reused, outputs are exported, and reviewers enter the loop.",
         "",
     ]
     found = False
@@ -165,8 +165,8 @@ def write_expansion_report(accounts, grouped_events):
                 [
                     f"## {account['account_name']}",
                     "",
-                    f"- Expansion basis: repeated `{top_workflow}` usage with memory reuse and reviewer adoption.",
-                    "- Suggested next step: ask for the adjacent workflow owned by the same team or reviewer.",
+                    f"- Expansion basis: repeated `{top_workflow}` usage with saved-preference reuse and reviewer adoption.",
+                    "- Suggested next step: ask for the adjacent job owned by the same team or reviewer.",
                     "- GTM proof point: this account is no longer just testing Endex; usage has repeated across cycles.",
                     "",
                 ]
@@ -199,7 +199,7 @@ def write_churn_report(accounts, grouped_events):
                     "",
                     f"- Health score: {metrics['score']} / 100 ({health_label(metrics['score'])})",
                     f"- Risk indicators: {', '.join(risky_actions) if risky_actions else 'low score'}",
-                    "- Suggested CS posture: diagnose whether the issue is trust, workflow fit, reviewer adoption, or missing live deadline.",
+                    "- Suggested CS posture: diagnose whether the issue is trust, fit for the customer's work, reviewer adoption, or missing live deadline.",
                     "",
                 ]
             )

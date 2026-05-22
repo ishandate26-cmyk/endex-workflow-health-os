@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Endex Workflow Health OS</title>
+  <style>
+    :root {
+      --ink: #071018;
+      --muted: #5c6570;
+      --line: #e3e7eb;
+      --soft: #f7f9fa;
+      --mint: #e8f8f5;
+      --green: #00a878;
+      --red: #b42318;
+      --gold: #9a6700;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 44px auto 72px;
+      padding: 0 28px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 36px;
+      align-items: end;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: 42px;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead {
+      margin: 16px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .meta {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--soft);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .meta strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    section { margin-top: 30px; }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 21px;
+      letter-spacing: -0.01em;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin: 0 0 5px;
+      font-size: 15px;
+    }
+
+    .score {
+      margin: 10px 0 6px;
+      font-size: 34px;
+      font-weight: 780;
+      line-height: 1;
+    }
+
+    .label {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--soft);
+      color: var(--muted);
+    }
+
+    .embedded { background: var(--mint); color: #006b55; }
+    .stalled { background: #fff1f0; color: var(--red); }
+    .risk { background: #fff7e6; color: var(--gold); }
+
+    .card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    th {
+      padding: 10px 8px;
+      color: var(--muted);
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+    }
+
+    td {
+      padding: 13px 8px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    td:nth-child(1) { width: 23%; font-weight: 700; }
+    td:nth-child(2) { width: 15%; }
+    td:nth-child(3) { width: 22%; color: var(--muted); }
+    td:nth-child(4) { width: 40%; }
+
+    .move {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .read {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .flow div {
+      position: relative;
+      padding: 14px;
+      background: var(--soft);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      min-height: 122px;
+    }
+
+    .flow span {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .flow p {
+      margin: 7px 0 0;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      header { grid-template-columns: 1fr; }
+      .cards, .flow { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Companion Prototype</p>
+        <h1>Workflow Health OS</h1>
+        <p class="subhead">
+          A small visual mock of how Customer Success could turn simple Endex product signals into account health, churn risk, and expansion decisions.
+        </p>
+      </div>
+      <div class="meta">
+        <strong>What this is</strong>
+        Synthetic data and operator-facing recommendations. Not a product rebuild, and not a claim about Endex's exact internal telemetry.
+      </div>
+    </header>
+
+    <section>
+      <h2>Snapshot</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Northbridge Capital</h3>
+          <span class="label embedded">Embedded</span>
+          <div class="score">97</div>
+          <p>Same earnings-update motion repeated across multiple names, saved preferences reused, PM reviewer active. Expansion-ready.</p>
+        </div>
+        <div class="card">
+          <h3>Helios Global Finance</h3>
+          <span class="label stalled">Stalled</span>
+          <div class="score">16</div>
+          <p>Monthly reporting usage is active, but outputs are not exported and users keep correcting Endex.</p>
+        </div>
+        <div class="card">
+          <h3>Atlas Infrastructure</h3>
+          <span class="label risk">At Risk</span>
+          <div class="score">41</div>
+          <p>Diligence output is exported, but no reviewer adoption means the account still depends on one champion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Account Reads</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Account</th>
+            <th>Status</th>
+            <th>Signal</th>
+            <th>Next Move</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Northbridge Capital</td>
+            <td><span class="label embedded">Embedded</span></td>
+            <td>Same work repeated twice, 3 exports, saved preferences reused, PM reviewer active</td>
+            <td>
+              <p class="move">Ask what happens immediately before or after this earnings update.</p>
+              <p class="read">Expand to the adjacent coverage list or PM-facing output while usage is fresh.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Helios Global Finance</td>
+            <td><span class="label stalled">Stalled</span></td>
+            <td>0 exports, same work not repeated, repeated corrections</td>
+            <td>
+              <p class="move">Ask the user to point to the first line or number they would not send onward.</p>
+              <p class="read">Then diagnose whether the issue is source confidence, reviewer format, weak explanation, or file traceability.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Westlake Event Driven</td>
+            <td><span class="label stalled">Stalled</span></td>
+            <td>Analysis generated, not exported, one active analyst</td>
+            <td>
+              <p class="move">Find the next earnings deadline and set up the same job around it.</p>
+              <p class="read">Create a PM-facing output so the champion is not carrying adoption alone.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Orion Consumer Corp</td>
+            <td><span class="label">Developing</span></td>
+            <td>Board pack repeated, CFO reviewer active, saved preferences reused</td>
+            <td>
+              <p class="move">Continue monitoring; test whether the board workflow can expand into forecast refresh.</p>
+              <p class="read">Healthy enough to watch for adjacent workflow pull, not yet a broad rollout pitch.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>How the System Thinks</h2>
+      <div class="flow">
+        <div>
+          <span>1. Observe</span>
+          <p>Capture basic usage: workbook uploads, generated outputs, citations opened, exports, corrections, reviewers.</p>
+        </div>
+        <div>
+          <span>2. Infer</span>
+          <p>Notice when similar work repeats: earnings updates, diligence, reporting, board prep.</p>
+        </div>
+        <div>
+          <span>3. Score</span>
+          <p>Grade adoption, trust, saved-preference quality, repeat use, and stakeholder spread.</p>
+        </div>
+        <div>
+          <span>4. Intervene</span>
+          <p>Route stalled accounts to concrete CS moves instead of generic check-ins.</p>
+        </div>
+        <div>
+          <span>5. Expand</span>
+          <p>Use repeated workflow proof to move into adjacent teams, reviewers, or workflows.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

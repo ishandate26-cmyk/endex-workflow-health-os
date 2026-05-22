@@ -5,14 +5,14 @@
     "cs_action": "Within 24 hours, ask the user to mark the first unusable line or number. Diagnose whether the blocker was unsupported sourcing, wrong format for the reviewer, weak explanation, or a number they could not tie back to the file."
   },
   "saved_not_rerun": {
-    "signal": "Workflow appears once but does not recur",
+    "signal": "Same job appears once but does not repeat",
     "likely_meaning": "The first run was interesting, but it did not attach to a live operating cadence",
-    "cs_action": "Find the next real deadline for the same motion: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Schedule the rerun before that date and remove any steps that made the first run feel too broad."
+    "cs_action": "Find the next real deadline for the same job: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Set up the next run before that date and remove any steps that made the first run feel too broad."
   },
   "heavy_overrides": {
     "signal": "Repeated user overrides",
-    "likely_meaning": "Endex is learning the wrong version of the customer's workflow",
-    "cs_action": "Pull the before/after diff. Ask which edits are personal style, which are firm standard, and which are factual corrections. Convert firm-standard edits into saved memory; route factual corrections to product or evals."
+    "likely_meaning": "Endex is learning the wrong version of how the customer wants the work done",
+    "cs_action": "Pull the before/after diff. Ask which edits are personal style, which are firm standard, and which are factual corrections. Convert firm-standard edits into saved preferences; route factual corrections to product or evals."
   },
   "single_champion": {
     "signal": "One active user and no reviewer adoption",
@@ -20,8 +20,8 @@
     "cs_action": "Ask the champion who consumes the output today. Create a version for that person: PM summary, MD memo, CFO variance note, or principal review packet. Get that reviewer into the next run."
   },
   "expansion_ready": {
-    "signal": "Multiple reruns, memory reuse, reviewer adoption, and exports",
+    "signal": "Same work repeated, saved preferences reused, reviewer adoption, and exports",
     "likely_meaning": "Endex has earned the right to ask for more surface area",
-    "cs_action": "Do not pitch a platform expansion yet. Ask what happens immediately before or after this workflow. Expand to the adjacent step, adjacent coverage list, or adjacent reviewer team while the current workflow is still warm."
+    "cs_action": "Do not pitch a platform expansion yet. Ask what happens immediately before or after this repeated job. Expand to the adjacent step, adjacent coverage list, or adjacent reviewer team while usage is still fresh."
   }
 }
