@@ -1,0 +1,28 @@
+{
+  "generated_not_exported": {
+    "signal": "Analysis generated but not exported",
+    "likely_meaning": "Trust, formatting, or reviewer-fit issue",
+    "cs_action": "Ask what blocked use: source confidence, output structure, reviewer expectation, or narrative quality."
+  },
+  "saved_not_rerun": {
+    "signal": "Workflow appears once but does not recur",
+    "likely_meaning": "Habit did not form",
+    "cs_action": "Anchor the workflow to the next live deadline and narrow the scope if needed."
+  },
+  "heavy_overrides": {
+    "signal": "Repeated user overrides",
+    "likely_meaning": "Memory, mapping, or assumption quality is wrong",
+    "cs_action": "Review edits with the user and update saved preferences, definitions, mappings, or source hierarchy."
+  },
+  "single_champion": {
+    "signal": "One active user and no reviewer adoption",
+    "likely_meaning": "Account is fragile",
+    "cs_action": "Create a reviewer-facing output and bring the PM, MD, CFO, or manager into the workflow."
+  },
+  "expansion_ready": {
+    "signal": "Multiple reruns, memory reuse, reviewer adoption, and exports",
+    "likely_meaning": "Workflow is becoming embedded",
+    "cs_action": "Coordinate with GTM to expand into an adjacent workflow or team."
+  }
+}
+

@@ -1,0 +1,12 @@
+user_id,account_id,name,role
+U001,A001,Maya Chen,Analyst
+U002,A001,Daniel Ross,Portfolio Manager
+U003,A002,Priya Shah,Associate
+U004,A002,Tom Alvarez,Principal
+U005,A003,Elena Morris,FP&A Manager
+U006,A003,Victor Lee,VP Finance
+U007,A004,Sam Kim,Senior Analyst
+U008,A005,Arjun Mehta,Associate
+U009,A006,Lena Brooks,Director of Finance
+U010,A006,Nora Patel,CFO
+

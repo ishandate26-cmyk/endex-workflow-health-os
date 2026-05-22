@@ -1,0 +1,8 @@
+account_id,account_name,segment,aum_or_revenue,stage,primary_buyer
+A001,Northbridge Capital,Hedge Fund,$18B,pilot,Portfolio Manager
+A002,Meridian Partners,Private Equity,$120B,customer,Operating Partner
+A003,Helios Global Finance,Enterprise Finance,$90B revenue,customer,VP Finance
+A004,Westlake Event Driven,Hedge Fund,$7B,trial,Senior Analyst
+A005,Atlas Infrastructure Partners,Private Equity,$45B,pilot,Principal
+A006,Orion Consumer Corp,Enterprise Finance,$42B revenue,customer,CFO
+
