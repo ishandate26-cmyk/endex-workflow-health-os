@@ -12,7 +12,9 @@ This report scores whether open-ended product usage is becoming recurring workfl
 - Signals: 2 reruns, 3 exports, 5 memory reuse events, 1 overrides, 5 reviewer signals
 
 Recommended actions:
-- **Multiple reruns, memory reuse, reviewer adoption, and exports**: Coordinate with GTM to expand into an adjacent workflow or team.
+- **Multiple reruns, memory reuse, reviewer adoption, and exports**
+  - Read: Endex has earned the right to ask for more surface area
+  - Next move: Do not pitch a platform expansion yet. Ask what happens immediately before or after this workflow. Expand to the adjacent step, adjacent coverage list, or adjacent reviewer team while the current workflow is still warm.
 
 ## Meridian Partners
 
@@ -35,9 +37,15 @@ Recommended actions: continue monitoring; no urgent intervention.
 - Signals: 0 reruns, 0 exports, 0 memory reuse events, 2 overrides, 1 reviewer signals
 
 Recommended actions:
-- **Analysis generated but not exported**: Ask what blocked use: source confidence, output structure, reviewer expectation, or narrative quality.
-- **Workflow appears once but does not recur**: Anchor the workflow to the next live deadline and narrow the scope if needed.
-- **Repeated user overrides**: Review edits with the user and update saved preferences, definitions, mappings, or source hierarchy.
+- **Analysis generated but not exported**
+  - Read: The output did not clear the bar for real work
+  - Next move: Within 24 hours, ask the user to mark the first unusable line or number. Diagnose whether the blocker was unsupported sourcing, wrong format for the reviewer, weak explanation, or a number they could not tie back to the file.
+- **Workflow appears once but does not recur**
+  - Read: The first run was interesting, but it did not attach to a live operating cadence
+  - Next move: Find the next real deadline for the same motion: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Schedule the rerun before that date and remove any steps that made the first run feel too broad.
+- **Repeated user overrides**
+  - Read: Endex is learning the wrong version of the customer's workflow
+  - Next move: Pull the before/after diff. Ask which edits are personal style, which are firm standard, and which are factual corrections. Convert firm-standard edits into saved memory; route factual corrections to product or evals.
 
 ## Westlake Event Driven
 
@@ -49,9 +57,15 @@ Recommended actions:
 - Signals: 0 reruns, 0 exports, 0 memory reuse events, 1 overrides, 0 reviewer signals
 
 Recommended actions:
-- **Analysis generated but not exported**: Ask what blocked use: source confidence, output structure, reviewer expectation, or narrative quality.
-- **Workflow appears once but does not recur**: Anchor the workflow to the next live deadline and narrow the scope if needed.
-- **One active user and no reviewer adoption**: Create a reviewer-facing output and bring the PM, MD, CFO, or manager into the workflow.
+- **Analysis generated but not exported**
+  - Read: The output did not clear the bar for real work
+  - Next move: Within 24 hours, ask the user to mark the first unusable line or number. Diagnose whether the blocker was unsupported sourcing, wrong format for the reviewer, weak explanation, or a number they could not tie back to the file.
+- **Workflow appears once but does not recur**
+  - Read: The first run was interesting, but it did not attach to a live operating cadence
+  - Next move: Find the next real deadline for the same motion: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Schedule the rerun before that date and remove any steps that made the first run feel too broad.
+- **One active user and no reviewer adoption**
+  - Read: The account can still die if the champion gets busy, leaves, or cannot persuade the reviewer
+  - Next move: Ask the champion who consumes the output today. Create a version for that person: PM summary, MD memo, CFO variance note, or principal review packet. Get that reviewer into the next run.
 
 ## Atlas Infrastructure Partners
 
@@ -63,7 +77,9 @@ Recommended actions:
 - Signals: 1 reruns, 2 exports, 1 memory reuse events, 0 overrides, 0 reviewer signals
 
 Recommended actions:
-- **One active user and no reviewer adoption**: Create a reviewer-facing output and bring the PM, MD, CFO, or manager into the workflow.
+- **One active user and no reviewer adoption**
+  - Read: The account can still die if the champion gets busy, leaves, or cannot persuade the reviewer
+  - Next move: Ask the champion who consumes the output today. Create a version for that person: PM summary, MD memo, CFO variance note, or principal review packet. Get that reviewer into the next run.
 
 ## Orion Consumer Corp
 

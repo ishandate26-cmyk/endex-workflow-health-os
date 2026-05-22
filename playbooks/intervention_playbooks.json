@@ -1,28 +1,27 @@
 {
   "generated_not_exported": {
     "signal": "Analysis generated but not exported",
-    "likely_meaning": "Trust, formatting, or reviewer-fit issue",
-    "cs_action": "Ask what blocked use: source confidence, output structure, reviewer expectation, or narrative quality."
+    "likely_meaning": "The output did not clear the bar for real work",
+    "cs_action": "Within 24 hours, ask the user to mark the first unusable line or number. Diagnose whether the blocker was unsupported sourcing, wrong format for the reviewer, weak explanation, or a number they could not tie back to the file."
   },
   "saved_not_rerun": {
     "signal": "Workflow appears once but does not recur",
-    "likely_meaning": "Habit did not form",
-    "cs_action": "Anchor the workflow to the next live deadline and narrow the scope if needed."
+    "likely_meaning": "The first run was interesting, but it did not attach to a live operating cadence",
+    "cs_action": "Find the next real deadline for the same motion: next earnings print, IC meeting, board update, close cycle, or diligence sprint. Schedule the rerun before that date and remove any steps that made the first run feel too broad."
   },
   "heavy_overrides": {
     "signal": "Repeated user overrides",
-    "likely_meaning": "Memory, mapping, or assumption quality is wrong",
-    "cs_action": "Review edits with the user and update saved preferences, definitions, mappings, or source hierarchy."
+    "likely_meaning": "Endex is learning the wrong version of the customer's workflow",
+    "cs_action": "Pull the before/after diff. Ask which edits are personal style, which are firm standard, and which are factual corrections. Convert firm-standard edits into saved memory; route factual corrections to product or evals."
   },
   "single_champion": {
     "signal": "One active user and no reviewer adoption",
-    "likely_meaning": "Account is fragile",
-    "cs_action": "Create a reviewer-facing output and bring the PM, MD, CFO, or manager into the workflow."
+    "likely_meaning": "The account can still die if the champion gets busy, leaves, or cannot persuade the reviewer",
+    "cs_action": "Ask the champion who consumes the output today. Create a version for that person: PM summary, MD memo, CFO variance note, or principal review packet. Get that reviewer into the next run."
   },
   "expansion_ready": {
     "signal": "Multiple reruns, memory reuse, reviewer adoption, and exports",
-    "likely_meaning": "Workflow is becoming embedded",
-    "cs_action": "Coordinate with GTM to expand into an adjacent workflow or team."
+    "likely_meaning": "Endex has earned the right to ask for more surface area",
+    "cs_action": "Do not pitch a platform expansion yet. Ask what happens immediately before or after this workflow. Expand to the adjacent step, adjacent coverage list, or adjacent reviewer team while the current workflow is still warm."
   }
 }
-

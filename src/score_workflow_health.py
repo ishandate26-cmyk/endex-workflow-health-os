@@ -137,7 +137,9 @@ def write_account_report(accounts, grouped_events, playbooks):
             lines.append("Recommended actions:")
             for action in actions:
                 item = playbooks[action]
-                lines.append(f"- **{item['signal']}**: {item['cs_action']}")
+                lines.append(f"- **{item['signal']}**")
+                lines.append(f"  - Read: {item['likely_meaning']}")
+                lines.append(f"  - Next move: {item['cs_action']}")
         else:
             lines.append("Recommended actions: continue monitoring; no urgent intervention.")
         lines.append("")
@@ -230,4 +232,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
