@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Endex Workflow Health OS</title>
+  <title>Endex CS Tracking Mock</title>
   <style>
     :root {
       --ink: #071018;
-      --muted: #5c6570;
-      --line: #e3e7eb;
+      --muted: #5b6570;
+      --line: #e2e7eb;
       --soft: #f7f9fa;
-      --mint: #e8f8f5;
+      --mint: #e7f8f4;
       --green: #00a878;
       --red: #b42318;
       --gold: #9a6700;
+      --blue: #2457c5;
     }
 
     * { box-sizing: border-box; }
@@ -27,14 +28,14 @@
     }
 
     main {
-      max-width: 1120px;
-      margin: 44px auto 72px;
+      max-width: 1160px;
+      margin: 42px auto 72px;
       padding: 0 28px;
     }
 
     header {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 260px;
+      grid-template-columns: minmax(0, 1fr) 315px;
       gap: 36px;
       align-items: end;
       padding-bottom: 24px;
@@ -53,20 +54,20 @@
     h1 {
       margin: 0;
       max-width: 760px;
-      font-size: 42px;
+      font-size: 40px;
       line-height: 1.06;
       letter-spacing: -0.02em;
     }
 
     .subhead {
-      margin: 16px 0 0;
-      max-width: 760px;
+      margin: 15px 0 0;
+      max-width: 780px;
       color: var(--muted);
       font-size: 17px;
     }
 
     .meta {
-      padding: 16px;
+      padding: 15px 16px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: var(--soft);
@@ -76,7 +77,7 @@
 
     .meta strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       color: var(--ink);
       font-size: 14px;
     }
@@ -89,10 +90,15 @@
       letter-spacing: -0.01em;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    h3 {
+      margin: 0 0 7px;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .explain {
@@ -107,35 +113,86 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .explain h3 {
-      margin: 0 0 6px;
-      font-size: 14px;
+    .segments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
 
-    .explain p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
-
-    .card {
-      padding: 17px;
+    .segment {
+      padding: 16px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: #fff;
+      min-height: 154px;
     }
 
-    .card h3 {
-      margin: 0 0 5px;
-      font-size: 15px;
+    .segment .tag {
+      display: inline-flex;
+      margin-bottom: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .segment ul {
+      margin: 10px 0 0 17px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .segment li { margin: 5px 0; }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .panel-body { padding: 16px; }
+
+    .row {
+      display: grid;
+      grid-template-columns: 130px 110px minmax(0, 1fr);
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .row:last-child { border-bottom: 0; }
+
+    .name {
+      font-weight: 720;
+      font-size: 13.5px;
     }
 
     .label {
       display: inline-flex;
-      padding: 3px 8px;
+      width: max-content;
+      height: 23px;
+      align-items: center;
+      padding: 0 8px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 720;
       background: var(--soft);
       color: var(--muted);
     }
@@ -143,69 +200,67 @@
     .embedded { background: var(--mint); color: #006b55; }
     .stalled { background: #fff1f0; color: var(--red); }
     .risk { background: #fff7e6; color: var(--gold); }
+    .learning { background: #eef3ff; color: var(--blue); }
 
-    .card p {
-      margin: 10px 0 0;
-      color: var(--muted);
+    .signal {
+      color: var(--ink);
       font-size: 13.5px;
+      margin-bottom: 4px;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    th {
-      padding: 10px 8px;
-      color: var(--muted);
-      text-align: left;
-      font-size: 12px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--line);
-    }
-
-    td {
-      padding: 13px 8px;
-      vertical-align: top;
-      border-bottom: 1px solid var(--line);
-    }
-
-    td:nth-child(1) { width: 23%; font-weight: 700; }
-    td:nth-child(2) { width: 15%; }
-    td:nth-child(3) { width: 22%; color: var(--muted); }
-    td:nth-child(4) { width: 40%; }
 
     .move {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .read {
-      margin: 4px 0 0;
       color: var(--muted);
       font-size: 13px;
     }
 
-    .flow {
+    .bars {
+      display: grid;
+      gap: 13px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .bar-label span:last-child { color: var(--muted); }
+
+    .track {
+      height: 10px;
+      border-radius: 999px;
+      background: #edf1f3;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .fill.gold { background: #d6a018; }
+    .fill.red { background: #dc6b5d; }
+    .fill.blue { background: #5a7fd8; }
+
+    .loop {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
       margin-top: 14px;
     }
 
-    .flow div {
-      position: relative;
-      padding: 14px;
-      background: var(--soft);
-      border-radius: 10px;
+    .loop div {
+      padding: 13px;
       border: 1px solid var(--line);
-      min-height: 122px;
+      border-radius: 10px;
+      background: var(--soft);
+      min-height: 112px;
     }
 
-    .flow span {
+    .loop span {
       color: var(--green);
       font-size: 12px;
       font-weight: 760;
@@ -213,15 +268,15 @@
       text-transform: uppercase;
     }
 
-    .flow p {
-      margin: 7px 0 0;
-      font-size: 13.5px;
-      color: var(--muted);
+    .loop p {
+      margin-top: 7px;
+      font-size: 13px;
     }
 
-    @media (max-width: 860px) {
-      header { grid-template-columns: 1fr; }
-      .cards, .flow { grid-template-columns: 1fr; }
+    @media (max-width: 920px) {
+      header, .dashboard { grid-template-columns: 1fr; }
+      .segments, .explain, .loop { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
     }
   </style>
@@ -231,14 +286,14 @@
     <header>
       <div>
         <p class="eyebrow">Companion Prototype</p>
-        <h1>Workflow Health OS</h1>
+        <h1>Customer Success Tracking Mock</h1>
         <p class="subhead">
-          A small visual mock of how Customer Success could turn simple Endex product signals into account health, churn risk, and expansion decisions.
+          A simple internal view of how Endex could track whether flexible product usage is turning into trusted, repeated work across different finance customer types.
         </p>
       </div>
       <div class="meta">
-        <strong>What this is</strong>
-        A synthetic example of what CS tracking could look like. It is not a claim about Endex's exact telemetry or product internals.
+        <strong>Important note</strong>
+        All names and data below are fictional. This is a sample of how the tracking recommendation might look, not a claim about Endex's actual telemetry.
       </div>
     </header>
 
@@ -247,111 +302,148 @@
       <div class="explain">
         <div>
           <h3>Status</h3>
-          <p>A plain-English read on the account. Is Endex becoming part of real work, or is usage stuck?</p>
+          <p>The account read. Is usage becoming part of real work, or is it stuck before the customer trusts it?</p>
         </div>
         <div>
           <h3>Signal</h3>
-          <p>The observed behavior. For example: exports, repeated similar work, reviewer activity, or repeated corrections.</p>
+          <p>The behavior behind the read. Exports, repeated similar work, reviewer activity, and repeated corrections all matter.</p>
         </div>
         <div>
           <h3>Next Move</h3>
-          <p>The action CS should take. This should be specific enough that a person can do it the same day.</p>
+          <p>The action CS should take next. It should be concrete enough for someone to do today.</p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Status Definitions</h2>
-      <div class="cards">
-        <div class="card">
-          <h3><span class="label embedded">Embedded</span></h3>
-          <p>The customer is using Endex for similar work more than once, exports the work, reuses saved preferences, and has a reviewer involved. This is where expansion can start.</p>
+      <h2>Works Across Finance Segments</h2>
+      <div class="segments">
+        <div class="segment">
+          <span class="tag">Public Markets</span>
+          <h3>Hedge funds and asset managers</h3>
+          <p>Repeated work often shows up around earnings, transcripts, catalysts, coverage lists, and PM updates.</p>
+          <ul>
+            <li>Earnings update</li>
+            <li>Merger / regulatory catalyst</li>
+            <li>Portfolio monitoring</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3><span class="label stalled">Stalled</span></h3>
-          <p>The customer is active but not getting to real work. Common signs are no exports, no repeated use, or the same corrections happening again and again.</p>
+        <div class="segment">
+          <span class="tag">Private Markets</span>
+          <h3>PE, corp dev, and deal teams</h3>
+          <p>The pattern is usually diligence, IC prep, model review, and recurring portfolio-company reporting.</p>
+          <ul>
+            <li>IC memo support</li>
+            <li>Data-room diligence</li>
+            <li>Operating model review</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3><span class="label risk">At Risk</span></h3>
-          <p>There is some value, but adoption is fragile. The most common version is one strong user with no reviewer or team adoption.</p>
+        <div class="segment">
+          <span class="tag">Corporate Finance</span>
+          <h3>CFO, FP&A, and accounting teams</h3>
+          <p>The stickiness comes from close, reporting, variance explanations, board packs, and recurring forecast work.</p>
+          <ul>
+            <li>Monthly close review</li>
+            <li>Budget vs. actuals</li>
+            <li>Board / CFO reporting</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Account Reads</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Account</th>
-            <th>Status</th>
-            <th>Signal</th>
-            <th>Next Move</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Northbridge Capital</td>
-            <td><span class="label embedded">Embedded</span></td>
-            <td>Same work repeated twice, 3 exports, saved preferences reused, PM reviewer active</td>
-            <td>
-              <p class="move">Ask what happens immediately before or after this earnings update.</p>
-              <p class="read">Why: the current motion is already working. The expansion should stay close to the work they already trust.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>Helios Global Finance</td>
-            <td><span class="label stalled">Stalled</span></td>
-            <td>0 exports, same work not repeated, repeated mapping/commentary corrections</td>
-            <td>
-              <p class="move">Ask the user to point to the first line, account mapping, or variance explanation they would not send to Finance leadership.</p>
-              <p class="read">Why: this is not a generic engagement problem. Something in the output is failing the customer's real review bar.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>Westlake Event Driven</td>
-            <td><span class="label stalled">Stalled</span></td>
-            <td>Analysis generated, not exported, one active analyst</td>
-            <td>
-              <p class="move">Find the next live catalyst: merger update, regulatory date, court filing, activist letter, restructuring milestone, or earnings print.</p>
-              <p class="read">Why: one analyst experimenting is fragile. A PM-facing update turns the trial into a real decision workflow.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>Orion Consumer Corp</td>
-            <td><span class="label">Developing</span></td>
-            <td>Board pack repeated, CFO reviewer active, saved preferences reused</td>
-            <td>
-              <p class="move">Continue monitoring; test whether the board workflow can expand into forecast refresh.</p>
-              <p class="read">Why: the account is developing well, but a broad rollout pitch would be premature without one more adjacent pull.</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Internal CS View</h2>
+      <div class="dashboard">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Account Reads</h3>
+            <p>Fictional placeholders, intentionally obvious.</p>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="name">Alpha Alpaca Capital</div>
+              <div><span class="label embedded">Embedded</span></div>
+              <div>
+                <div class="signal">Same earnings-update motion repeated across three semis names; PM opened cited summary.</div>
+                <div class="move">Ask what happens before or after the update. Expand to adjacent coverage list or PM output.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="name">Prairie Widget CFO Office</div>
+              <div><span class="label stalled">Stalled</span></div>
+              <div>
+                <div class="signal">Monthly variance pack generated twice, but mappings and commentary were corrected both times.</div>
+                <div class="move">Have the FP&A lead mark the first unusable line. Save the correct mappings and reporting format.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="name">Merger Mondays Fund</div>
+              <div><span class="label risk">At Risk</span></div>
+              <div>
+                <div class="signal">One analyst used Endex for a catalyst update, but nothing was exported and no PM reviewed it.</div>
+                <div class="move">Tie the next run to a live catalyst and produce a PM-facing update, not a generic check-in.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="name">Quarter-End & Sons</div>
+              <div><span class="label learning">Learning</span></div>
+              <div>
+                <div class="signal">Close-review output is being used, but accountants keep changing labels and audit-note language.</div>
+                <div class="move">Separate firm style from factual corrections. Save style preferences; route factual issues to product/evals.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>What CS Is Watching</h3>
+            <p>Not logins. Whether work is trusted enough to leave Endex.</p>
+          </div>
+          <div class="panel-body bars">
+            <div>
+              <div class="bar-label"><span>Exports / shares</span><span>strong</span></div>
+              <div class="track"><div class="fill" style="width: 82%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Similar work repeated</span><span>medium</span></div>
+              <div class="track"><div class="fill blue" style="width: 58%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Reviewer adoption</span><span>uneven</span></div>
+              <div class="track"><div class="fill gold" style="width: 46%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Repeated corrections</span><span>watch</span></div>
+              <div class="track"><div class="fill red" style="width: 39%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>How the System Thinks</h2>
-      <div class="flow">
+      <h2>Operating Loop</h2>
+      <div class="loop">
         <div>
           <span>1. Observe</span>
-          <p>Capture basic usage: workbook uploads, generated outputs, citations opened, exports, corrections, reviewers.</p>
+          <p>Capture simple usage: files, outputs, citations, exports, corrections, reviewers.</p>
         </div>
         <div>
-          <span>2. Infer</span>
-          <p>Notice when similar work repeats: earnings updates, diligence, reporting, board prep.</p>
+          <span>2. Notice</span>
+          <p>Find repeated pieces inside messy work, not only perfectly repeatable workflows.</p>
         </div>
         <div>
-          <span>3. Score</span>
-          <p>Grade adoption, trust, saved-preference quality, repeat use, and stakeholder spread.</p>
+          <span>3. Save</span>
+          <p>Turn repeated choices into preferences, templates, source habits, or reviewer formats.</p>
         </div>
         <div>
           <span>4. Intervene</span>
-          <p>Route stalled accounts to concrete CS moves instead of generic check-ins.</p>
+          <p>When work stalls, fix the exact blocker instead of sending a generic check-in.</p>
         </div>
         <div>
           <span>5. Expand</span>
-          <p>Use repeated-use proof to move into adjacent teams, reviewers, or work.</p>
+          <p>When similar work repeats and reviewers engage, move to the adjacent team or process.</p>
         </div>
       </div>
     </section>
