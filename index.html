@@ -20,7 +20,7 @@
 
     body {
       margin: 0;
-      background: #fff;
+      background: #f6f8f7;
       color: var(--ink);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.35;
@@ -357,6 +357,117 @@
       gap: 14px;
     }
 
+    .workflow-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .workflow-row {
+      display: grid;
+      grid-template-columns: 210px minmax(240px, 1fr) minmax(220px, .85fr) 132px;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(7, 16, 24, .04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .workflow-row::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--line);
+    }
+
+    .workflow-row.good::before { background: var(--green); }
+    .workflow-row.info::before { background: var(--blue); }
+    .workflow-row.warn::before { background: var(--gold); }
+    .workflow-row.bad::before { background: var(--red); }
+
+    .workflow-name h3 {
+      margin: 0 0 5px;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .workflow-name span,
+    .proof span,
+    .action span {
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .row-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .proof strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .status-chip {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    .status-chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .status-chip.good::before { background: var(--green); }
+    .status-chip.info::before { background: var(--blue); }
+    .status-chip.warn::before { background: var(--gold); }
+    .status-chip.bad::before { background: var(--red); }
+
     .example-card {
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -450,6 +561,40 @@
       font-size: 12.5px;
     }
 
+    .loop {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .loop div {
+      min-height: 86px;
+      padding: 14px;
+      border-right: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #f9fbfa 100%);
+    }
+
+    .loop div:last-child { border-right: 0; }
+
+    .loop strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green);
+      font-size: 12px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .loop p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
     @media (max-width: 920px) {
       header { display: grid; }
       .note { max-width: none; }
@@ -457,9 +602,14 @@
       .metrics { grid-template-columns: 1fr 1fr; }
       .stage-guide { grid-template-columns: 1fr; }
       .examples { grid-template-columns: 1fr; }
+      .workflow-row { grid-template-columns: 1fr; }
+      .status-chip { justify-self: start; }
       .flow { grid-template-columns: 1fr; }
       .arrow { transform: rotate(90deg); min-height: 20px; }
       .summary { grid-template-columns: 1fr; }
+      .loop { grid-template-columns: 1fr; }
+      .loop div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .loop div:last-child { border-bottom: 0; }
       h1 { font-size: 32px; }
     }
   </style>
@@ -608,95 +758,100 @@
     <section>
       <h2>What CS Should Make Concrete</h2>
       <p class="caption">The recommendation is not to invent features Endex already has. CS should make Memories, Firm Templates, citations, and data sources compound inside one real recurring workflow.</p>
-      <div class="examples">
-        <article class="example-card">
-          <h3>Public markets analyst</h3>
-          <div class="flow">
-            <div class="step good">
-              <strong>First run</strong>
-              <span>NVDA model updated after earnings; PM summary drafted with citations.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step info">
-              <strong>CS encodes</strong>
-              <span>Source set, model tabs, KPI definitions, and PM summary format.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step good">
-              <strong>Second-run test</strong>
-              <span>AMD update starts faster and keeps the PM-ready format.</span>
+      <div class="workflow-list">
+        <article class="workflow-row good">
+          <div class="workflow-name">
+            <h3>Public markets analyst</h3>
+            <span>NVDA earnings model → AMD update</span>
+          </div>
+          <div>
+            <span class="row-label">Context encoded</span>
+            <div class="pills">
+              <span class="pill">source set</span>
+              <span class="pill">model tabs</span>
+              <span class="pill">KPI definitions</span>
+              <span class="pill">PM format</span>
             </div>
           </div>
-          <p class="plain">If the next earnings update starts faster and the PM format holds, the pilot is becoming sticky.</p>
+          <div class="proof">
+            <span class="row-label">Second-run proof</span>
+            <strong>AMD update starts faster</strong>
+            <span>Output keeps the PM-ready structure.</span>
+          </div>
+          <span class="status-chip good">Embedded</span>
         </article>
 
-        <article class="example-card">
-          <h3>HVAC company CFO</h3>
-          <div class="flow">
-            <div class="step good">
-              <strong>First run</strong>
-              <span>Budget-vs-actuals workbook refreshed from the monthly ERP export.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step bad">
-              <strong>CS encodes</strong>
-              <span>Correct service revenue mapping, variance threshold, and owner language.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step good">
-              <strong>Second-run test</strong>
-              <span>June workbook uses saved mapping and flags only new exceptions.</span>
+        <article class="workflow-row bad">
+          <div class="workflow-name">
+            <h3>HVAC company CFO</h3>
+            <span>Budget-vs-actuals → June review</span>
+          </div>
+          <div>
+            <span class="row-label">Context encoded</span>
+            <div class="pills">
+              <span class="pill">COA mapping</span>
+              <span class="pill">variance threshold</span>
+              <span class="pill">owner language</span>
             </div>
           </div>
-          <p class="plain">If next month starts from the saved mapping and owner format, Endex is entering the finance team's operating rhythm.</p>
+          <div class="proof">
+            <span class="row-label">Second-run proof</span>
+            <strong>Saved mapping must hold</strong>
+            <span>Only new exceptions should need review.</span>
+          </div>
+          <span class="status-chip bad">Fix mapping</span>
         </article>
 
-        <article class="example-card">
-          <h3>Private markets deal team</h3>
-          <div class="flow">
-            <div class="step good">
-              <strong>First run</strong>
-              <span>LBO model and CIM are used to draft an IC memo section.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step warn">
-              <strong>CS encodes</strong>
-              <span>IC memo skeleton, sensitivity checks, diligence sources, and partner edits.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step good">
-              <strong>Second-run test</strong>
-              <span>Next deal reuses the committee package with fewer rewrites.</span>
+        <article class="workflow-row warn">
+          <div class="workflow-name">
+            <h3>Private markets deal team</h3>
+            <span>LBO + CIM → next live deal</span>
+          </div>
+          <div>
+            <span class="row-label">Context encoded</span>
+            <div class="pills">
+              <span class="pill">IC skeleton</span>
+              <span class="pill">model checks</span>
+              <span class="pill">diligence sources</span>
+              <span class="pill">partner edits</span>
             </div>
           </div>
-          <p class="plain">If the next live deal reuses the memo structure and model checks, expansion has a real workflow basis.</p>
+          <div class="proof">
+            <span class="row-label">Second-run proof</span>
+            <strong>Committee package repeats</strong>
+            <span>Fewer rewrites on the next deal.</span>
+          </div>
+          <span class="status-chip warn">Review</span>
         </article>
 
-        <article class="example-card">
-          <h3>Accounting team</h3>
-          <div class="flow">
-            <div class="step good">
-              <strong>First run</strong>
-              <span>Close workbook and support schedules are used to draft flux notes.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step warn">
-              <strong>CS encodes</strong>
-              <span>Recurring accounts, support files, sign-offs, and auditor language.</span>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step good">
-              <strong>Second-run test</strong>
-              <span>Next close starts with the right support and reviewer wording.</span>
+        <article class="workflow-row info">
+          <div class="workflow-name">
+            <h3>Accounting team</h3>
+            <span>Close workbook → next close</span>
+          </div>
+          <div>
+            <span class="row-label">Context encoded</span>
+            <div class="pills">
+              <span class="pill">recurring accounts</span>
+              <span class="pill">support files</span>
+              <span class="pill">sign-offs</span>
+              <span class="pill">auditor wording</span>
             </div>
           </div>
-          <p class="plain">If the next close starts with the right support files and reviewer wording, the workflow is becoming embedded.</p>
+          <div class="proof">
+            <span class="row-label">Second-run proof</span>
+            <strong>Close starts with support</strong>
+            <span>Reviewer wording carries forward.</span>
+          </div>
+          <span class="status-chip info">Learning</span>
         </article>
       </div>
     </section>
 
-    <section class="summary">
-      <div>
+    <section>
+      <h2>Operating Loop</h2>
+      <div class="loop">
+        <div>
         <strong>Map</strong>
         <p>Workbook families, tabs, imports, formulas, reviewers.</p>
       </div>
