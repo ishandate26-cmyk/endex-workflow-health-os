@@ -95,6 +95,29 @@
       gap: 14px;
     }
 
+    .explain {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .explain div {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .explain h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .explain p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
     .card {
       padding: 17px;
       border: 1px solid var(--line);
@@ -105,13 +128,6 @@
     .card h3 {
       margin: 0 0 5px;
       font-size: 15px;
-    }
-
-    .score {
-      margin: 10px 0 6px;
-      font-size: 34px;
-      font-weight: 780;
-      line-height: 1;
     }
 
     .label {
@@ -129,7 +145,7 @@
     .risk { background: #fff7e6; color: var(--gold); }
 
     .card p {
-      margin: 12px 0 0;
+      margin: 10px 0 0;
       color: var(--muted);
       font-size: 13.5px;
     }
@@ -222,30 +238,42 @@
       </div>
       <div class="meta">
         <strong>What this is</strong>
-        Synthetic data and operator-facing recommendations. Not a product rebuild, and not a claim about Endex's exact internal telemetry.
+        A synthetic example of what CS tracking could look like. It is not a claim about Endex's exact telemetry or product internals.
       </div>
     </header>
 
     <section>
-      <h2>Snapshot</h2>
+      <h2>How to Read This</h2>
+      <div class="explain">
+        <div>
+          <h3>Status</h3>
+          <p>A plain-English read on the account. Is Endex becoming part of real work, or is usage stuck?</p>
+        </div>
+        <div>
+          <h3>Signal</h3>
+          <p>The observed behavior. For example: exports, repeated similar work, reviewer activity, or repeated corrections.</p>
+        </div>
+        <div>
+          <h3>Next Move</h3>
+          <p>The action CS should take. This should be specific enough that a person can do it the same day.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Status Definitions</h2>
       <div class="cards">
         <div class="card">
-          <h3>Northbridge Capital</h3>
-          <span class="label embedded">Embedded</span>
-          <div class="score">97</div>
-          <p>Same earnings-update motion repeated across multiple names, saved preferences reused, PM reviewer active. Expansion-ready.</p>
+          <h3><span class="label embedded">Embedded</span></h3>
+          <p>The customer is using Endex for similar work more than once, exports the work, reuses saved preferences, and has a reviewer involved. This is where expansion can start.</p>
         </div>
         <div class="card">
-          <h3>Helios Global Finance</h3>
-          <span class="label stalled">Stalled</span>
-          <div class="score">16</div>
-          <p>Monthly reporting usage is active, but the team keeps correcting mappings, labels, and commentary before anything is sent onward.</p>
+          <h3><span class="label stalled">Stalled</span></h3>
+          <p>The customer is active but not getting to real work. Common signs are no exports, no repeated use, or the same corrections happening again and again.</p>
         </div>
         <div class="card">
-          <h3>Atlas Infrastructure</h3>
-          <span class="label risk">At Risk</span>
-          <div class="score">41</div>
-          <p>Diligence output is exported, but no reviewer adoption means the account still depends on one champion.</p>
+          <h3><span class="label risk">At Risk</span></h3>
+          <p>There is some value, but adoption is fragile. The most common version is one strong user with no reviewer or team adoption.</p>
         </div>
       </div>
     </section>
@@ -268,7 +296,7 @@
             <td>Same work repeated twice, 3 exports, saved preferences reused, PM reviewer active</td>
             <td>
               <p class="move">Ask what happens immediately before or after this earnings update.</p>
-              <p class="read">Expand to the adjacent coverage list or PM-facing output while usage is fresh.</p>
+              <p class="read">Why: the current motion is already working. The expansion should stay close to the work they already trust.</p>
             </td>
           </tr>
           <tr>
@@ -277,7 +305,7 @@
             <td>0 exports, same work not repeated, repeated mapping/commentary corrections</td>
             <td>
               <p class="move">Ask the user to point to the first line, account mapping, or variance explanation they would not send to Finance leadership.</p>
-              <p class="read">Then separate the issue: wrong account mapping, unclear source, bad variance narrative, or output format that does not match the monthly reporting pack.</p>
+              <p class="read">Why: this is not a generic engagement problem. Something in the output is failing the customer's real review bar.</p>
             </td>
           </tr>
           <tr>
@@ -286,7 +314,7 @@
             <td>Analysis generated, not exported, one active analyst</td>
             <td>
               <p class="move">Find the next live catalyst: merger update, regulatory date, court filing, activist letter, restructuring milestone, or earnings print.</p>
-              <p class="read">Create a PM-facing catalyst update so the analyst is not carrying adoption alone.</p>
+              <p class="read">Why: one analyst experimenting is fragile. A PM-facing update turns the trial into a real decision workflow.</p>
             </td>
           </tr>
           <tr>
@@ -295,7 +323,7 @@
             <td>Board pack repeated, CFO reviewer active, saved preferences reused</td>
             <td>
               <p class="move">Continue monitoring; test whether the board workflow can expand into forecast refresh.</p>
-              <p class="read">Healthy enough to watch for adjacent workflow pull, not yet a broad rollout pitch.</p>
+              <p class="read">Why: the account is developing well, but a broad rollout pitch would be premature without one more adjacent pull.</p>
             </td>
           </tr>
         </tbody>
@@ -323,7 +351,7 @@
         </div>
         <div>
           <span>5. Expand</span>
-          <p>Use repeated workflow proof to move into adjacent teams, reviewers, or workflows.</p>
+          <p>Use repeated-use proof to move into adjacent teams, reviewers, or work.</p>
         </div>
       </div>
     </section>
