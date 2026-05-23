@@ -7,25 +7,21 @@
   <style>
     :root {
       --ink: #071018;
-      --muted: #63707d;
-      --line: #e2e7eb;
+      --muted: #62707d;
+      --line: #e2e8ed;
       --soft: #f7f9fa;
       --green: #00a878;
-      --green-soft: #e7f8f4;
-      --red: #b42318;
-      --red-soft: #fff1f0;
-      --gold: #9a6700;
-      --gold-soft: #fff7e6;
-      --blue: #2457c5;
-      --blue-soft: #eef3ff;
+      --blue: #5277d9;
+      --gold: #d49a12;
+      --red: #dc6b5d;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      color: var(--ink);
       background: #fff;
+      color: var(--ink);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.35;
     }
@@ -38,9 +34,9 @@
 
     header {
       display: flex;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 28px;
-      align-items: flex-end;
       padding-bottom: 22px;
       border-bottom: 1px solid var(--line);
     }
@@ -63,14 +59,14 @@
 
     .subhead {
       margin: 12px 0 0;
-      max-width: 790px;
+      max-width: 780px;
       color: var(--muted);
       font-size: 16px;
     }
 
     .note {
       max-width: 285px;
-      padding: 13px 14px;
+      padding: 12px 14px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: var(--soft);
@@ -80,272 +76,189 @@
 
     .note strong {
       display: block;
-      margin-bottom: 4px;
       color: var(--ink);
-      font-size: 13px;
+      margin-bottom: 3px;
     }
 
-    section { margin-top: 26px; }
+    section { margin-top: 28px; }
 
     h2 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 20px;
       letter-spacing: -0.01em;
     }
 
-    .grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .metrics {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .metric {
-      padding: 15px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-    }
-
-    .metric span {
+    .caption {
+      margin: 0 0 14px;
       color: var(--muted);
-      font-size: 12px;
-      font-weight: 720;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .metric strong {
-      display: block;
-      margin-top: 8px;
-      font-size: 30px;
-      line-height: 1;
-    }
-
-    .metric p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 12.5px;
-    }
-
-    .tracker {
-      display: grid;
-      grid-template-columns: 1fr 310px;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      overflow: hidden;
-    }
-
-    .panel-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 15px;
-      border-bottom: 1px solid var(--line);
-      background: var(--soft);
-    }
-
-    .panel-head h3 {
-      margin: 0;
-      font-size: 15px;
-    }
-
-    .panel-head p {
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 12.5px;
+      font-size: 13.5px;
     }
 
     .legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-      justify-content: flex-end;
-      min-width: 210px;
+      gap: 14px;
+      margin: 10px 0 16px;
+      color: var(--muted);
+      font-size: 12.5px;
     }
 
-    .pill {
+    .legend span {
       display: inline-flex;
       align-items: center;
-      height: 23px;
-      padding: 0 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 720;
-      background: var(--soft);
-      color: var(--muted);
-      white-space: nowrap;
+      gap: 6px;
     }
 
-    .embedded { background: var(--green-soft); color: #006b55; }
-    .stalled { background: var(--red-soft); color: var(--red); }
-    .risk { background: var(--gold-soft); color: var(--gold); }
-    .learning { background: var(--blue-soft); color: var(--blue); }
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line);
+      display: inline-block;
+    }
+
+    .good { background: var(--green); }
+    .info { background: var(--blue); }
+    .warn { background: var(--gold); }
+    .bad { background: var(--red); }
+
+    .visual {
+      width: 100%;
+      overflow-x: auto;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0 4px;
+    }
+
+    svg {
+      width: 100%;
+      min-width: 960px;
+      height: auto;
+      display: block;
+    }
+
+    .axis {
+      fill: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
 
     .account {
-      display: grid;
-      grid-template-columns: 168px 92px 1fr 170px;
-      gap: 13px;
-      align-items: center;
-      padding: 13px 15px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .account:last-child { border-bottom: 0; }
-
-    .name {
-      font-weight: 760;
-      font-size: 13.5px;
+      fill: var(--ink);
+      font-size: 13px;
+      font-weight: 740;
     }
 
     .segment {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
+      fill: var(--muted);
+      font-size: 11.5px;
     }
 
-    .signal {
-      display: grid;
-      gap: 6px;
+    .small {
+      fill: var(--muted);
+      font-size: 11.5px;
     }
 
-    .signal-line {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: 12.5px;
-    }
+    .gridline { stroke: var(--line); stroke-width: 1; }
+    .path { fill: none; stroke: #cfd7de; stroke-width: 3; stroke-linecap: round; }
+    .path.good { stroke: rgba(0, 168, 120, .35); }
+    .path.warn { stroke: rgba(212, 154, 18, .35); }
+    .path.bad { stroke: rgba(220, 107, 93, .35); }
+    .path.info { stroke: rgba(82, 119, 217, .35); }
 
     .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--line);
-      flex: 0 0 auto;
+      stroke: #fff;
+      stroke-width: 2;
     }
 
-    .dot.good { background: var(--green); }
-    .dot.warn { background: #d6a018; }
-    .dot.bad { background: #dc6b5d; }
-    .dot.info { background: #5a7fd8; }
-
-    .next {
-      color: var(--ink);
-      font-size: 12.7px;
-      font-weight: 620;
+    .callout {
+      fill: #fff;
+      stroke: var(--line);
+      stroke-width: 1;
+      rx: 8;
     }
 
-    .bars {
-      padding: 15px;
+    .callout-text {
+      fill: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .callout-muted {
+      fill: var(--muted);
+      font-size: 11.5px;
+    }
+
+    .heat {
       display: grid;
-      gap: 14px;
+      grid-template-columns: 160px repeat(5, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
-    .bar-label {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 6px;
+    .heat div {
+      min-height: 44px;
+      padding: 10px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       font-size: 12.5px;
-    }
-
-    .bar-label span:last-child {
       color: var(--muted);
-      font-weight: 650;
+      display: flex;
+      align-items: center;
     }
 
-    .track {
-      height: 10px;
-      border-radius: 999px;
-      background: #edf1f3;
-      overflow: hidden;
+    .heat .head {
+      color: var(--ink);
+      font-weight: 740;
+      background: var(--soft);
     }
 
-    .fill {
-      height: 100%;
-      border-radius: 999px;
-      background: var(--green);
-    }
-
-    .fill.gold { background: #d6a018; }
-    .fill.red { background: #dc6b5d; }
-    .fill.blue { background: #5a7fd8; }
-
-    .segments {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .segment-card {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
+    .heat .row-head {
+      color: var(--ink);
+      font-weight: 740;
       background: #fff;
     }
 
-    .segment-card h3 {
-      margin: 0 0 8px;
-      font-size: 14px;
-    }
+    .cell-strong { background: rgba(0, 168, 120, .18); color: #006b55 !important; font-weight: 720; }
+    .cell-medium { background: rgba(82, 119, 217, .14); color: #2457c5 !important; font-weight: 720; }
+    .cell-watch { background: rgba(212, 154, 18, .16); color: #8a5f00 !important; font-weight: 720; }
+    .cell-risk { background: rgba(220, 107, 93, .14); color: #a13d32 !important; font-weight: 720; }
 
-    .mini-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .mini-list span {
-      padding: 4px 7px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .loop {
+    .summary {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 10px;
     }
 
-    .step {
+    .summary div {
       padding: 13px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
       background: var(--soft);
-      min-height: 96px;
+      border-radius: 10px;
+      min-height: 92px;
     }
 
-    .step span {
+    .summary strong {
+      display: block;
       color: var(--green);
       font-size: 12px;
-      font-weight: 760;
       letter-spacing: .06em;
       text-transform: uppercase;
+      margin-bottom: 7px;
     }
 
-    .step p {
-      margin: 7px 0 0;
+    .summary p {
+      margin: 0;
       color: var(--muted);
       font-size: 12.5px;
     }
 
-    @media (max-width: 980px) {
-      header, .tracker { grid-template-columns: 1fr; display: grid; }
-      .metrics, .segments, .loop { grid-template-columns: 1fr; }
-      .account { grid-template-columns: 1fr; }
+    @media (max-width: 920px) {
+      header { display: grid; }
       .note { max-width: none; }
+      .heat { grid-template-columns: 140px repeat(5, 150px); overflow-x: auto; }
+      .summary { grid-template-columns: 1fr; }
       h1 { font-size: 32px; }
     }
   </style>
@@ -355,176 +268,157 @@
     <header>
       <div>
         <p class="eyebrow">Companion Prototype</p>
-        <h1>CS Tracking Mock</h1>
+        <h1>CS Adoption Map</h1>
         <p class="subhead">
-          A more visual sketch of how Endex could track whether flexible usage is becoming trusted, repeated work across high finance and corporate finance customers.
+          A visual sketch of how Endex could track whether customer usage is moving from exploration to trusted, repeated work across high finance and corporate finance.
         </p>
       </div>
       <div class="note">
         <strong>Fictional data</strong>
-        Placeholder names and signals only. This shows what the tracking recommendation might look like, not actual Endex telemetry.
+        Placeholder names only. This shows the tracking concept, not actual Endex telemetry.
       </div>
     </header>
 
-    <section class="grid metrics">
-      <div class="metric">
-        <span>Repeated work</span>
-        <strong>42%</strong>
-        <p>Accounts where similar work happened more than once.</p>
+    <section>
+      <h2>Account Progression</h2>
+      <p class="caption">Each row shows where an account is in the adoption path. The break point is usually trust: does the work leave Endex and reach a reviewer?</p>
+      <div class="legend">
+        <span><i class="swatch good"></i>healthy</span>
+        <span><i class="swatch info"></i>learning</span>
+        <span><i class="swatch warn"></i>watch</span>
+        <span><i class="swatch bad"></i>blocked</span>
       </div>
-      <div class="metric">
-        <span>Trusted output</span>
-        <strong>31%</strong>
-        <p>Outputs exported, shared, or reviewed.</p>
-      </div>
-      <div class="metric">
-        <span>Correction loop</span>
-        <strong>18%</strong>
-        <p>Accounts with repeated mapping or format corrections.</p>
-      </div>
-      <div class="metric">
-        <span>Expansion-ready</span>
-        <strong>9</strong>
-        <p>Accounts with repeat use and reviewer adoption.</p>
+      <div class="visual">
+        <svg viewBox="0 0 1120 520" role="img" aria-label="CS adoption map">
+          <text class="axis" x="260" y="28">explore</text>
+          <text class="axis" x="410" y="28">export</text>
+          <text class="axis" x="560" y="28">repeat</text>
+          <text class="axis" x="710" y="28">reviewer</text>
+          <text class="axis" x="860" y="28">expand</text>
+
+          <line class="gridline" x1="285" y1="45" x2="285" y2="455" />
+          <line class="gridline" x1="435" y1="45" x2="435" y2="455" />
+          <line class="gridline" x1="585" y1="45" x2="585" y2="455" />
+          <line class="gridline" x1="735" y1="45" x2="735" y2="455" />
+          <line class="gridline" x1="885" y1="45" x2="885" y2="455" />
+
+          <text class="account" x="20" y="88">Alpha Alpaca Capital</text>
+          <text class="segment" x="20" y="108">public markets / earnings</text>
+          <path class="path good" d="M285 95 L435 95 L585 95 L735 95 L885 95" />
+          <circle class="dot good" cx="285" cy="95" r="9" />
+          <circle class="dot good" cx="435" cy="95" r="9" />
+          <circle class="dot good" cx="585" cy="95" r="9" />
+          <circle class="dot good" cx="735" cy="95" r="9" />
+          <circle class="dot good" cx="885" cy="95" r="9" />
+          <rect class="callout" x="930" y="72" width="150" height="46" />
+          <text class="callout-text" x="944" y="91">Next move</text>
+          <text class="callout-muted" x="944" y="108">adjacent coverage list</text>
+
+          <text class="account" x="20" y="178">Prairie Widget CFO Office</text>
+          <text class="segment" x="20" y="198">FP&amp;A / monthly reporting</text>
+          <path class="path bad" d="M285 185 L435 185" />
+          <circle class="dot good" cx="285" cy="185" r="9" />
+          <circle class="dot bad" cx="435" cy="185" r="9" />
+          <circle class="dot bad" cx="585" cy="185" r="9" opacity=".25" />
+          <circle class="dot bad" cx="735" cy="185" r="9" opacity=".25" />
+          <circle class="dot bad" cx="885" cy="185" r="9" opacity=".25" />
+          <rect class="callout" x="930" y="162" width="150" height="46" />
+          <text class="callout-text" x="944" y="181">Blocked on</text>
+          <text class="callout-muted" x="944" y="198">mapping + commentary</text>
+
+          <text class="account" x="20" y="268">Merger Mondays Fund</text>
+          <text class="segment" x="20" y="288">event-driven / catalyst</text>
+          <path class="path warn" d="M285 275 L435 275" />
+          <circle class="dot good" cx="285" cy="275" r="9" />
+          <circle class="dot warn" cx="435" cy="275" r="9" />
+          <circle class="dot warn" cx="585" cy="275" r="9" opacity=".25" />
+          <circle class="dot warn" cx="735" cy="275" r="9" opacity=".25" />
+          <circle class="dot warn" cx="885" cy="275" r="9" opacity=".25" />
+          <rect class="callout" x="930" y="252" width="150" height="46" />
+          <text class="callout-text" x="944" y="271">Next move</text>
+          <text class="callout-muted" x="944" y="288">tie to live catalyst</text>
+
+          <text class="account" x="20" y="358">Quarter-End &amp; Sons</text>
+          <text class="segment" x="20" y="378">accounting / close</text>
+          <path class="path info" d="M285 365 L435 365 L585 365" />
+          <circle class="dot good" cx="285" cy="365" r="9" />
+          <circle class="dot good" cx="435" cy="365" r="9" />
+          <circle class="dot info" cx="585" cy="365" r="9" />
+          <circle class="dot warn" cx="735" cy="365" r="9" opacity=".25" />
+          <circle class="dot warn" cx="885" cy="365" r="9" opacity=".25" />
+          <rect class="callout" x="930" y="342" width="150" height="46" />
+          <text class="callout-text" x="944" y="361">Learning</text>
+          <text class="callout-muted" x="944" y="378">save firm style</text>
+
+          <text class="small" x="260" y="490">usage begins</text>
+          <text class="small" x="402" y="490">leaves Endex</text>
+          <text class="small" x="552" y="490">similar work</text>
+          <text class="small" x="698" y="490">stakeholder</text>
+          <text class="small" x="852" y="490">more surface area</text>
+        </svg>
       </div>
     </section>
 
-    <section class="grid segments">
-      <div class="segment-card">
-        <h3>Public Markets</h3>
-        <div class="mini-list">
-          <span>earnings</span><span>transcripts</span><span>catalysts</span><span>PM updates</span>
-        </div>
-      </div>
-      <div class="segment-card">
-        <h3>Private Markets</h3>
-        <div class="mini-list">
-          <span>diligence</span><span>IC memo</span><span>model review</span><span>portfolio reporting</span>
-        </div>
-      </div>
-      <div class="segment-card">
-        <h3>Corporate Finance / Accounting</h3>
-        <div class="mini-list">
-          <span>close</span><span>variance</span><span>forecast</span><span>board pack</span>
-        </div>
-      </div>
-    </section>
+    <section>
+      <h2>Signal Heatmap</h2>
+      <p class="caption">The same CS logic works across customer types, but the useful signals change by segment.</p>
+      <div class="heat">
+        <div class="head">Segment</div>
+        <div class="head">Export / share</div>
+        <div class="head">Similar work repeats</div>
+        <div class="head">Reviewer enters</div>
+        <div class="head">Corrections repeat</div>
+        <div class="head">Expansion path</div>
 
-    <section class="tracker">
-      <div class="panel">
-        <div class="panel-head">
-          <div>
-            <h3>Account Tracker</h3>
-            <p>Status = account read. Signal = observed behavior. Next move = CS action.</p>
-          </div>
-          <div class="legend">
-            <span class="pill embedded">Embedded</span>
-            <span class="pill stalled">Stalled</span>
-            <span class="pill risk">At Risk</span>
-            <span class="pill learning">Learning</span>
-          </div>
-        </div>
+        <div class="row-head">Public markets</div>
+        <div class="cell-strong">PM summary sent</div>
+        <div class="cell-strong">same coverage motion</div>
+        <div class="cell-medium">PM opens sources</div>
+        <div class="cell-watch">thesis language edits</div>
+        <div class="cell-strong">coverage list / pod</div>
 
-        <div class="account">
-          <div>
-            <div class="name">Alpha Alpaca Capital</div>
-            <div class="segment">public markets</div>
-          </div>
-          <div><span class="pill embedded">Embedded</span></div>
-          <div class="signal">
-            <div class="signal-line"><span class="dot good"></span>same earnings motion repeated across semis names</div>
-            <div class="signal-line"><span class="dot good"></span>PM opened cited summary</div>
-          </div>
-          <div class="next">Expand to adjacent coverage list or PM output.</div>
-        </div>
+        <div class="row-head">Private markets</div>
+        <div class="cell-strong">IC draft exported</div>
+        <div class="cell-medium">new deal, same process</div>
+        <div class="cell-strong">principal reviews</div>
+        <div class="cell-watch">memo structure edits</div>
+        <div class="cell-medium">deal team / portco</div>
 
-        <div class="account">
-          <div>
-            <div class="name">Prairie Widget CFO Office</div>
-            <div class="segment">FP&A / CFO</div>
-          </div>
-          <div><span class="pill stalled">Stalled</span></div>
-          <div class="signal">
-            <div class="signal-line"><span class="dot bad"></span>variance pack generated, not sent onward</div>
-            <div class="signal-line"><span class="dot warn"></span>mappings corrected twice</div>
-          </div>
-          <div class="next">Have FP&A lead mark the first unusable line.</div>
-        </div>
+        <div class="row-head">Corporate finance</div>
+        <div class="cell-medium">board pack exported</div>
+        <div class="cell-medium">monthly cycle</div>
+        <div class="cell-strong">CFO opens output</div>
+        <div class="cell-risk">mapping corrections</div>
+        <div class="cell-medium">forecast / variance</div>
 
-        <div class="account">
-          <div>
-            <div class="name">Merger Mondays Fund</div>
-            <div class="segment">event-driven</div>
-          </div>
-          <div><span class="pill risk">At Risk</span></div>
-          <div class="signal">
-            <div class="signal-line"><span class="dot warn"></span>one catalyst update generated</div>
-            <div class="signal-line"><span class="dot bad"></span>no export, no PM review</div>
-          </div>
-          <div class="next">Tie next run to a live catalyst.</div>
-        </div>
-
-        <div class="account">
-          <div>
-            <div class="name">Quarter-End & Sons</div>
-            <div class="segment">accounting / close</div>
-          </div>
-          <div><span class="pill learning">Learning</span></div>
-          <div class="signal">
-            <div class="signal-line"><span class="dot info"></span>close-review output is being used</div>
-            <div class="signal-line"><span class="dot warn"></span>audit-note language keeps changing</div>
-          </div>
-          <div class="next">Save firm style; route factual fixes to product/evals.</div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head">
-          <div>
-            <h3>What CS Watches</h3>
-            <p>Not logins. Whether work is trusted enough to leave Endex.</p>
-          </div>
-        </div>
-        <div class="bars">
-          <div>
-            <div class="bar-label"><span>Exports / shares</span><span>strong</span></div>
-            <div class="track"><div class="fill" style="width: 82%"></div></div>
-          </div>
-          <div>
-            <div class="bar-label"><span>Similar work repeated</span><span>medium</span></div>
-            <div class="track"><div class="fill blue" style="width: 58%"></div></div>
-          </div>
-          <div>
-            <div class="bar-label"><span>Reviewer adoption</span><span>uneven</span></div>
-            <div class="track"><div class="fill gold" style="width: 46%"></div></div>
-          </div>
-          <div>
-            <div class="bar-label"><span>Repeated corrections</span><span>watch</span></div>
-            <div class="track"><div class="fill red" style="width: 39%"></div></div>
-          </div>
-        </div>
+        <div class="row-head">Accounting</div>
+        <div class="cell-medium">close notes exported</div>
+        <div class="cell-strong">close repeats monthly</div>
+        <div class="cell-medium">controller review</div>
+        <div class="cell-risk">audit wording fixes</div>
+        <div class="cell-medium">close checklist</div>
       </div>
     </section>
 
-    <section class="loop">
-      <div class="step">
-        <span>Observe</span>
+    <section class="summary">
+      <div>
+        <strong>Observe</strong>
         <p>Files, outputs, citations, exports, corrections, reviewers.</p>
       </div>
-      <div class="step">
-        <span>Notice</span>
+      <div>
+        <strong>Notice</strong>
         <p>Repeated pieces inside messy work, not only perfect workflows.</p>
       </div>
-      <div class="step">
-        <span>Save</span>
+      <div>
+        <strong>Save</strong>
         <p>Preferences, templates, source habits, reviewer formats.</p>
       </div>
-      <div class="step">
-        <span>Intervene</span>
-        <p>Fix the exact blocker instead of sending a generic check-in.</p>
+      <div>
+        <strong>Intervene</strong>
+        <p>Fix the blocker instead of sending a generic check-in.</p>
       </div>
-      <div class="step">
-        <span>Expand</span>
+      <div>
+        <strong>Expand</strong>
         <p>Move to the adjacent team or process when usage repeats.</p>
       </div>
     </section>
