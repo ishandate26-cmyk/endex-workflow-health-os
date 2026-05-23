@@ -103,6 +103,37 @@
       font-size: 12.5px;
     }
 
+    .heat-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 14px;
+    }
+
+    .heat-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 720;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .box {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .box.green { background: rgba(0, 168, 120, .28); }
+    .box.blue { background: rgba(82, 119, 217, .22); }
+    .box.gold { background: rgba(212, 154, 18, .24); }
+    .box.red { background: rgba(220, 107, 93, .22); }
+
     .legend span {
       display: inline-flex;
       align-items: center;
@@ -362,13 +393,19 @@
     <section>
       <h2>Signal Heatmap</h2>
       <p class="caption">The same CS logic works across customer types, but the useful signals change by segment.</p>
+      <div class="heat-legend">
+        <span><i class="box green"></i>adoption proof</span>
+        <span><i class="box blue"></i>setup / expansion signal</span>
+        <span><i class="box gold"></i>watch for preference drift</span>
+        <span><i class="box red"></i>blocker to fix</span>
+      </div>
       <div class="heat">
         <div class="head">Segment</div>
-        <div class="head">Export / share</div>
-        <div class="head">Similar work repeats</div>
-        <div class="head">Reviewer enters</div>
-        <div class="head">Corrections repeat</div>
-        <div class="head">Expansion path</div>
+        <div class="head">Work leaves Endex</div>
+        <div class="head">Same motion repeats</div>
+        <div class="head">Reviewer joins</div>
+        <div class="head">What needs fixing</div>
+        <div class="head">Where to expand</div>
 
         <div class="row-head">Public markets</div>
         <div class="cell-strong">PM summary sent</div>
