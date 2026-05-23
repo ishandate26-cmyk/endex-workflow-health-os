@@ -140,6 +140,35 @@
       gap: 6px;
     }
 
+    .stage-guide {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 16px 0 0;
+    }
+
+    .stage-guide div {
+      padding: 12px;
+      border-top: 3px solid var(--line);
+      background: var(--soft);
+      min-height: 92px;
+    }
+
+    .stage-guide strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .stage-guide p,
+    .example-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
     .swatch {
       width: 10px;
       height: 10px;
@@ -257,6 +286,77 @@
     .cell-watch { background: rgba(212, 154, 18, .16); color: #8a5f00 !important; font-weight: 720; }
     .cell-risk { background: rgba(220, 107, 93, .14); color: #a13d32 !important; font-weight: 720; }
 
+    .examples {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .example-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .example-card h3 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr 28px 1fr;
+      align-items: stretch;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .step {
+      min-height: 82px;
+      padding: 10px;
+      background: var(--soft);
+      border-top: 4px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      justify-content: flex-start;
+    }
+
+    .step.good { border-color: var(--green); background: rgba(0, 168, 120, .08); }
+    .step.info { border-color: var(--blue); background: rgba(82, 119, 217, .08); }
+    .step.warn { border-color: var(--gold); background: rgba(212, 154, 18, .08); }
+    .step.bad { border-color: var(--red); background: rgba(220, 107, 93, .08); }
+
+    .step strong {
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .step span {
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 650;
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .plain {
+      margin-top: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
     .summary {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -289,6 +389,10 @@
       header { display: grid; }
       .note { max-width: none; }
       .heat { grid-template-columns: 140px repeat(5, 150px); overflow-x: auto; }
+      .stage-guide { grid-template-columns: 1fr; }
+      .examples { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); min-height: 20px; }
       .summary { grid-template-columns: 1fr; }
       h1 { font-size: 32px; }
     }
@@ -312,7 +416,7 @@
 
     <section>
       <h2>Account Progression</h2>
-      <p class="caption">Each row shows where an account is in the adoption path. The break point is usually trust: does the work leave Endex and reach a reviewer?</p>
+      <p class="caption">Each row shows whether Endex is moving from a first try to a repeated habit. The important break point is simple: does the work leave Endex and reach someone who matters?</p>
       <div class="legend">
         <span><i class="swatch good"></i>healthy</span>
         <span><i class="swatch info"></i>learning</span>
@@ -388,52 +492,117 @@
           <text class="small" x="852" y="490">more surface area</text>
         </svg>
       </div>
+      <div class="stage-guide" aria-label="Plain English stage definitions">
+        <div>
+          <strong>Explore</strong>
+          <p>Someone tries Endex on real work, not a sandbox prompt.</p>
+        </div>
+        <div>
+          <strong>Export</strong>
+          <p>The answer gets sent, pasted, shared, or used outside Endex.</p>
+        </div>
+        <div>
+          <strong>Repeat</strong>
+          <p>A similar job comes back next week, next deal, or next month.</p>
+        </div>
+        <div>
+          <strong>Reviewer</strong>
+          <p>A PM, CFO, controller, or partner actually reviews the output.</p>
+        </div>
+        <div>
+          <strong>Expand</strong>
+          <p>The remembered context helps with a nearby task or team.</p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Signal Heatmap</h2>
-      <p class="caption">The same CS logic works across customer types, but the useful signals change by segment.</p>
-      <div class="heat-legend">
-        <span><i class="box green"></i>adoption proof</span>
-        <span><i class="box blue"></i>setup / expansion signal</span>
-        <span><i class="box gold"></i>watch for preference drift</span>
-        <span><i class="box red"></i>blocker to fix</span>
-      </div>
-      <div class="heat">
-        <div class="head">Segment</div>
-        <div class="head">Work leaves Endex</div>
-        <div class="head">Same motion repeats</div>
-        <div class="head">Reviewer joins</div>
-        <div class="head">What needs fixing</div>
-        <div class="head">Where to expand</div>
+      <h2>What CS Would Do Next</h2>
+      <p class="caption">The idea is not to force every customer into one perfect workflow. CS looks for repeated pieces inside the customer’s normal work and turns those pieces into saved context, better product behavior, or an expansion motion.</p>
+      <div class="examples">
+        <article class="example-card">
+          <h3>Public markets analyst</h3>
+          <div class="flow">
+            <div class="step good">
+              <strong>First use</strong>
+              <span>NVDA earnings summary exported with citations.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step info">
+              <strong>Repeat signal</strong>
+              <span>Analyst asks for the same format on AMD and Microsoft.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step good">
+              <strong>CS move</strong>
+              <span>Save source style and help GTM expand across the pod.</span>
+            </div>
+          </div>
+          <p class="plain">This is sticky because Endex now knows the analyst’s coverage workflow, citation habits, and PM-ready format.</p>
+        </article>
 
-        <div class="row-head">Public markets</div>
-        <div class="cell-strong">PM summary sent</div>
-        <div class="cell-strong">same coverage motion</div>
-        <div class="cell-medium">PM opens sources</div>
-        <div class="cell-watch">thesis language edits</div>
-        <div class="cell-strong">coverage list / pod</div>
+        <article class="example-card">
+          <h3>HVAC company CFO</h3>
+          <div class="flow">
+            <div class="step good">
+              <strong>First use</strong>
+              <span>Monthly budget-vs-actuals commentary exported.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step bad">
+              <strong>Blocker</strong>
+              <span>Service revenue and repair revenue are mapped wrong.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step good">
+              <strong>CS move</strong>
+              <span>Fix the mapping and save the owner-facing format.</span>
+            </div>
+          </div>
+          <p class="plain">This is sticky only if next month’s review starts from the CFO’s actual chart of accounts, variance thresholds, and preferred wording.</p>
+        </article>
 
-        <div class="row-head">Private markets</div>
-        <div class="cell-strong">IC draft exported</div>
-        <div class="cell-medium">new deal, same process</div>
-        <div class="cell-strong">principal reviews</div>
-        <div class="cell-watch">memo structure edits</div>
-        <div class="cell-medium">deal team / portco</div>
+        <article class="example-card">
+          <h3>Private markets deal team</h3>
+          <div class="flow">
+            <div class="step good">
+              <strong>First use</strong>
+              <span>IC memo section drafted from CIM, model, and diligence notes.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step warn">
+              <strong>Watch</strong>
+              <span>Principal rewrites the same memo structure each time.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step good">
+              <strong>CS move</strong>
+              <span>Save the firm’s memo style and pitch the next deal team.</span>
+            </div>
+          </div>
+          <p class="plain">The expansion path is not vague “more usage.” It is the next live deal where the same investment committee format matters.</p>
+        </article>
 
-        <div class="row-head">Corporate finance</div>
-        <div class="cell-medium">board pack exported</div>
-        <div class="cell-medium">monthly cycle</div>
-        <div class="cell-strong">CFO opens output</div>
-        <div class="cell-risk">mapping corrections</div>
-        <div class="cell-medium">forecast / variance</div>
-
-        <div class="row-head">Accounting</div>
-        <div class="cell-medium">close notes exported</div>
-        <div class="cell-strong">close repeats monthly</div>
-        <div class="cell-medium">controller review</div>
-        <div class="cell-risk">audit wording fixes</div>
-        <div class="cell-medium">close checklist</div>
+        <article class="example-card">
+          <h3>Accounting team</h3>
+          <div class="flow">
+            <div class="step good">
+              <strong>First use</strong>
+              <span>Close notes drafted from the workbook and support files.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step warn">
+              <strong>Repeat signal</strong>
+              <span>The same account review comes back every month.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step good">
+              <strong>CS move</strong>
+              <span>Turn notes into a monthly close checklist.</span>
+            </div>
+          </div>
+          <p class="plain">That means Endex remembers which accounts need review, what support is required, who signs off, and what wording the auditor expects.</p>
+        </article>
       </div>
     </section>
 
