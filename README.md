@@ -31,7 +31,7 @@ The script in `src/score_workflow_health.py` reads synthetic account, user, and 
 - CS intervention recommendations
 - GTM proof points
 
-The visual mockup also includes user-facing nudges. Each nudge shows what Endex might surface inside Excel when a workflow repeats: reusable context, new exceptions, user actions, and the CS signal created by the response.
+The visual mockup also includes user-facing nudges. Each nudge shows what Endex might surface inside Excel when a workflow repeats: reusable context, new exceptions, user actions, and the CS signal created by the response. The same loop also gives Product better exception data and gives GTM proof that a pilot has moved beyond first-use excitement.
 
 ## Repo Structure
 
