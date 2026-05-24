@@ -450,9 +450,63 @@
       padding: 14px;
     }
 
+    .heat-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .heat-title strong {
+      display: block;
+      color: #fffdf8;
+      font-size: 14px;
+      letter-spacing: -.01em;
+    }
+
+    .heat-title span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(255, 253, 248, .55);
+      font-size: 12px;
+    }
+
+    .heat-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .heat-key {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 7px;
+      border: 1px solid var(--dark-line);
+      border-radius: 999px;
+      color: rgba(255, 253, 248, .66);
+      font-size: 11px;
+      font-weight: 720;
+      white-space: nowrap;
+    }
+
+    .heat-key::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 253, 248, .18);
+    }
+
+    .heat-key.good::before { background: rgba(15, 111, 80, .9); }
+    .heat-key.watch::before { background: rgba(185, 134, 44, .9); }
+    .heat-key.bad::before { background: rgba(170, 96, 68, .95); }
+
     .heat-row {
       display: grid;
-      grid-template-columns: 150px repeat(4, 1fr);
+      grid-template-columns: 122px repeat(4, 1fr);
       gap: 6px;
       align-items: center;
       margin-bottom: 7px;
@@ -468,15 +522,33 @@
     }
 
     .heat-cell {
-      height: 31px;
+      min-height: 38px;
+      padding: 8px 7px;
       border-radius: 10px;
       background: rgba(255, 253, 248, .08);
       border: 1px solid var(--dark-line);
+      color: rgba(255, 253, 248, .72);
+      font-size: 11px;
+      font-weight: 740;
+      line-height: 1.12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .heat-cell.good { background: rgba(15, 111, 80, .54); }
-    .heat-cell.watch { background: rgba(185, 134, 44, .50); }
-    .heat-cell.bad { background: rgba(170, 96, 68, .58); }
+    .heat-cell.good {
+      background: rgba(15, 111, 80, .54);
+      color: #e8f7f0;
+    }
+    .heat-cell.watch {
+      background: rgba(185, 134, 44, .50);
+      color: #fff4d8;
+    }
+    .heat-cell.bad {
+      background: rgba(170, 96, 68, .58);
+      color: #ffeae2;
+    }
 
     .signal-card {
       padding: 18px;
@@ -762,7 +834,8 @@
       h1 { font-size: 40px; }
       .metrics,
       .nudge-cols { grid-template-columns: 1fr; }
-      .heat-row { grid-template-columns: 1fr repeat(4, 40px); }
+      .heat-row { grid-template-columns: 1fr; }
+      .heat-legend { justify-content: flex-start; }
       .sheet-grid { padding: 16px; }
     }
   </style>
@@ -909,33 +982,45 @@
 
           <div class="matrix">
             <div class="panel heatmap">
+              <div class="heat-title">
+                <div>
+                  <strong>Rule health by workflow</strong>
+                  <span>Each cell is a deployable rule, not generic activity.</span>
+                </div>
+                <div class="heat-legend" aria-label="Heatmap legend">
+                  <span class="heat-key good">held</span>
+                  <span class="heat-key watch">needs review</span>
+                  <span class="heat-key bad">broke again</span>
+                  <span class="heat-key">not tested</span>
+                </div>
+              </div>
               <div class="heat-row header">
                 <span>Workflow</span>
-                <span>Map</span>
-                <span>Define</span>
-                <span>Review</span>
-                <span>Output</span>
+                <span>Source mapping</span>
+                <span>Rule definition</span>
+                <span>User correction</span>
+                <span>Next-cycle proof</span>
               </div>
               <div class="heat-row">
                 <span>HVAC budget</span>
-                <i class="heat-cell bad"></i>
-                <i class="heat-cell good"></i>
-                <i class="heat-cell watch"></i>
-                <i class="heat-cell good"></i>
+                <i class="heat-cell bad">4025 broke</i>
+                <i class="heat-cell good">rule captured</i>
+                <i class="heat-cell watch">CFO review</i>
+                <i class="heat-cell">July test</i>
               </div>
               <div class="heat-row">
                 <span>PE reporting</span>
-                <i class="heat-cell good"></i>
-                <i class="heat-cell watch"></i>
-                <i class="heat-cell bad"></i>
-                <i class="heat-cell good"></i>
+                <i class="heat-cell good">sources held</i>
+                <i class="heat-cell watch">add-back policy</i>
+                <i class="heat-cell bad">partner edit</i>
+                <i class="heat-cell">next package</i>
               </div>
               <div class="heat-row">
                 <span>Close support</span>
-                <i class="heat-cell good"></i>
-                <i class="heat-cell good"></i>
-                <i class="heat-cell watch"></i>
-                <i class="heat-cell"></i>
+                <i class="heat-cell good">files held</i>
+                <i class="heat-cell good">checklist held</i>
+                <i class="heat-cell watch">wording edit</i>
+                <i class="heat-cell">not tested</i>
               </div>
             </div>
 
