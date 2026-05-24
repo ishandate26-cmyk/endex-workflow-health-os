@@ -258,100 +258,123 @@
       background: var(--green);
     }
 
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(330px, .88fr);
-      gap: 14px;
-      align-items: stretch;
-    }
-
-    .panel {
-      border: 1px solid var(--dark-line);
-      border-radius: 20px;
-      background: rgba(255, 253, 248, .08);
-      overflow: hidden;
-    }
-
-    .panel-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--dark-line);
-    }
-
-    .panel-head strong {
-      font-size: 14px;
-      letter-spacing: -.01em;
-    }
-
-    .panel-head span {
-      color: rgba(255, 253, 248, .58);
-      font-size: 12px;
-    }
-
-    .contracts {
-      display: grid;
-      gap: 10px;
-      padding: 14px;
-    }
-
-    .contract {
-      display: grid;
-      grid-template-columns: 170px minmax(0, 1fr) 118px;
-      gap: 14px;
-      align-items: center;
-      padding: 14px;
+    .deployment-context {
+      margin-bottom: 14px;
+      padding: 13px 15px;
       border: 1px solid var(--dark-line);
       border-radius: 16px;
       background: rgba(255, 253, 248, .07);
+      color: rgba(255, 253, 248, .74);
+      font-size: 13px;
     }
 
-    .contract h4,
-    .queue-card h4 {
-      margin: 0 0 5px;
-      font-size: 14px;
-      letter-spacing: -.01em;
+    .deployment-context strong {
+      color: #fffdf8;
     }
 
-    .contract small,
-    .queue-card small {
+    .deployment-table {
+      border: 1px solid var(--dark-line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255, 253, 248, .06);
+    }
+
+    .deploy-header,
+    .deploy-row {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr .86fr 1.1fr 1.1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .deploy-header {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--dark-line);
+      background: rgba(255, 253, 248, .06);
+      color: rgba(255, 253, 248, .50);
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .deploy-row {
+      padding: 14px;
+      border-bottom: 1px solid var(--dark-line);
+    }
+
+    .deploy-row:last-child {
+      border-bottom: 0;
+    }
+
+    .deploy-cell {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid rgba(255, 253, 248, .10);
+      border-radius: 15px;
+      background: rgba(255, 253, 248, .06);
+    }
+
+    .deploy-cell h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -.015em;
+    }
+
+    .deploy-cell small {
+      display: block;
       color: rgba(255, 253, 248, .58);
       font-size: 12px;
+      line-height: 1.35;
     }
 
-    .rules {
+    .deploy-cell p {
+      margin: 0;
+      color: rgba(255, 253, 248, .72);
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .rule-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
     }
 
-    .rule {
-      padding: 7px 8px;
+    .rule-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 6px 8px;
       border-radius: 999px;
       background: rgba(226, 240, 233, .12);
       color: #d8efe4;
-      font-size: 12px;
-      font-weight: 720;
-      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 740;
+      line-height: 1.15;
     }
 
-    .status {
-      justify-self: end;
+    .deploy-status {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .status-pill {
       display: inline-flex;
+      width: fit-content;
       align-items: center;
       gap: 7px;
       padding: 8px 10px;
-      border-radius: 999px;
       border: 1px solid var(--dark-line);
+      border-radius: 999px;
       color: #fffdf8;
       font-size: 12px;
-      font-weight: 780;
+      font-weight: 800;
       white-space: nowrap;
     }
 
-    .status::before {
+    .status-pill::before {
       content: "";
       width: 9px;
       height: 9px;
@@ -359,225 +382,31 @@
       background: var(--green);
     }
 
-    .status.blocked::before { background: var(--clay); }
-    .status.watch::before { background: var(--amber); }
+    .status-pill.blocked::before { background: var(--clay); }
+    .status-pill.watch::before { background: var(--amber); }
 
-    .queue-panel {
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-
-    .queue-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding: 14px;
-    }
-
-    .queue-card {
-      padding: 14px;
-      border: 1px solid var(--dark-line);
-      border-radius: 16px;
-      background: rgba(255, 253, 248, .07);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .queue-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: var(--amber);
-    }
-
-    .queue-card.blocked::before { background: var(--clay); }
-    .queue-card.ready::before { background: var(--green); }
-
-    .queue-card p {
-      margin: 8px 0 0;
-      color: rgba(255, 253, 248, .72);
-      font-size: 13px;
-    }
-
-    .matrix {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
-      gap: 14px;
-    }
-
-    .heatmap {
-      padding: 14px;
-    }
-
-    .heat-title {
+    .step-path {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .heat-title strong {
-      display: block;
-      color: #fffdf8;
-      font-size: 14px;
-      letter-spacing: -.01em;
-    }
-
-    .heat-title span {
-      display: block;
-      margin-top: 3px;
-      color: rgba(255, 253, 248, .55);
-      font-size: 12px;
-    }
-
-    .heat-legend {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 7px;
-    }
-
-    .heat-key {
-      display: inline-flex;
+      gap: 5px;
       align-items: center;
-      gap: 6px;
-      padding: 5px 8px;
-      border: 1px solid var(--dark-line);
+    }
+
+    .step-dot {
+      width: 12px;
+      height: 12px;
       border-radius: 999px;
-      color: rgba(255, 253, 248, .66);
+      border: 1px solid rgba(255, 253, 248, .26);
+      background: rgba(255, 253, 248, .10);
+    }
+
+    .step-dot.good { background: var(--green); border-color: rgba(226, 240, 233, .28); }
+    .step-dot.watch { background: var(--amber); border-color: rgba(255, 244, 216, .25); }
+    .step-dot.bad { background: var(--clay); border-color: rgba(255, 234, 226, .25); }
+
+    .step-caption {
+      color: rgba(255, 253, 248, .56);
       font-size: 11px;
-      font-weight: 720;
-      white-space: nowrap;
-    }
-
-    .heat-key::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 253, 248, .18);
-    }
-
-    .heat-key.good::before { background: rgba(15, 111, 80, .9); }
-    .heat-key.watch::before { background: rgba(185, 134, 44, .9); }
-    .heat-key.bad::before { background: rgba(170, 96, 68, .95); }
-
-    .heat-row {
-      display: grid;
-      grid-template-columns: 170px repeat(4, minmax(108px, 1fr));
-      gap: 6px;
-      align-items: center;
-      margin-bottom: 7px;
-      color: rgba(255, 253, 248, .62);
-      font-size: 12px;
-    }
-
-    .heat-row.header {
-      color: rgba(255, 253, 248, .48);
-      font-weight: 820;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .heat-cell {
-      min-height: 38px;
-      padding: 0;
-      border-radius: 10px;
-      background: rgba(255, 253, 248, .08);
-      border: 1px solid var(--dark-line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .heat-cell::after {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 253, 248, .44);
-    }
-
-    .heat-cell.good {
-      background: rgba(15, 111, 80, .54);
-    }
-
-    .heat-cell.good::after {
-      width: 13px;
-      height: 7px;
-      border: 0;
-      border-left: 3px solid #e8f7f0;
-      border-bottom: 3px solid #e8f7f0;
-      border-radius: 0;
-      transform: rotate(-45deg) translateY(-1px);
-    }
-
-    .heat-cell.watch {
-      background: rgba(185, 134, 44, .50);
-    }
-
-    .heat-cell.watch::after {
-      width: 9px;
-      height: 9px;
-      background: #fff4d8;
-      border: 0;
-      box-shadow: 0 0 0 4px rgba(255, 244, 216, .12);
-    }
-
-    .heat-cell.bad {
-      background: rgba(170, 96, 68, .58);
-    }
-
-    .heat-cell.bad::before,
-    .heat-cell.bad::after {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 3px;
-      border: 0;
-      border-radius: 99px;
-      background: #ffeae2;
-    }
-
-    .heat-cell.bad::before { transform: rotate(45deg); }
-    .heat-cell.bad::after { transform: rotate(-45deg); }
-
-    .signal-card {
-      padding: 18px;
-    }
-
-    .signal-card h4 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.08;
-      letter-spacing: -.03em;
-    }
-
-    .signal-card p {
-      margin: 0 0 14px;
-      color: rgba(255, 253, 248, .72);
-      font-size: 14px;
-    }
-
-    .signal-detail {
-      display: grid;
-      gap: 9px;
-    }
-
-    .signal-detail div {
-      padding: 11px 12px;
-      border-radius: 12px;
-      background: rgba(255, 253, 248, .08);
-      color: rgba(255, 253, 248, .75);
-      font-size: 13px;
-    }
-
-    .signal-detail b {
-      color: #fffdf8;
+      line-height: 1.3;
     }
 
     .excel-shell {
@@ -878,12 +707,9 @@
       main { width: min(100vw - 32px, 1400px); }
       .hero,
       .console,
-      .dashboard-grid,
-      .matrix,
       .excel-shell { grid-template-columns: 1fr; }
-      .contract { grid-template-columns: 1fr; }
-      .status { justify-self: start; }
-      .queue-list { grid-template-columns: 1fr; }
+      .deploy-header { display: none; }
+      .deploy-row { grid-template-columns: 1fr; }
       .sheet-table { width: 100%; }
       .nudge {
         position: static;
@@ -895,8 +721,6 @@
     @media (max-width: 680px) {
       h1 { font-size: 40px; }
       .nudge-cols { grid-template-columns: 1fr; }
-      .heat-row { grid-template-columns: 1fr; }
-      .heat-legend { justify-content: flex-start; }
       .sheet-grid { padding: 16px; }
     }
   </style>
@@ -921,8 +745,8 @@
       <div class="section-head">
         <div>
           <p class="label">Part 1 - Endex internal view</p>
-          <h2>Workflow Step Tracker Across Pilot Accounts</h2>
-          <p class="caption">Each row is one customer workflow, not generic usage. CS reads it left to right: source mapped, rule locked, user accepted, next run proved.</p>
+          <h2>Pilot Account Deployment Status</h2>
+          <p class="caption">Each row is one customer workflow. CS can see the rules Endex is trying to carry forward, where the workflow is stuck, and the next action before the workflow repeats.</p>
         </div>
       </div>
 
@@ -934,115 +758,85 @@
               <h3>Pilot account workflow tracker</h3>
             </div>
             <div class="top-pills">
-              <span class="pill">HVAC budget review</span>
-              <span class="pill">PE portfolio reporting</span>
-              <span class="pill">2 CS actions open</span>
+              <span class="pill">2 pilot workflows</span>
+              <span class="pill">2 open CS actions</span>
+              <span class="pill">next-run proof pending</span>
             </div>
           </div>
 
-          <div class="dashboard-grid">
-            <div class="panel">
-              <div class="panel-head">
-                <strong>Customer-specific rules being deployed</strong>
-                <span>the exact rules CS wants to survive the next run</span>
-              </div>
-              <div class="contracts">
-                <article class="contract">
-                  <div>
-                    <h4>HVAC budget review</h4>
-                    <small>Trigger: NetSuite actuals import</small>
-                  </div>
-                  <div class="rules">
-                    <span class="rule">4025 -> Repair Revenue</span>
-                    <span class="rule">6125 excluded from run-rate</span>
-                    <span class="rule">Variance threshold: 8%</span>
-                    <span class="rule">Board wording: CFO style</span>
-                  </div>
-                  <span class="status blocked">Blocked</span>
-                </article>
-
-                <article class="contract">
-                  <div>
-                    <h4>PE portfolio reporting</h4>
-                    <small>Trigger: PortCo monthly package</small>
-                  </div>
-                  <div class="rules">
-                    <span class="rule">Implementation fees: non-recurring</span>
-                    <span class="rule">Integration add-back needs partner approval</span>
-                    <span class="rule">Covenant headroom formula</span>
-                  </div>
-                  <span class="status watch">Needs owner input</span>
-                </article>
-              </div>
-            </div>
-
-            <div class="panel queue-panel">
-              <div class="panel-head">
-                <strong>Customer Success action queue</strong>
-                <span>next account-level work</span>
-              </div>
-              <div class="queue-list">
-                <article class="queue-card blocked">
-                  <h4>Lock revenue mapping</h4>
-                  <small>HVAC budget review</small>
-                  <p>Confirm account 4025 treatment with CFO and controller before July close.</p>
-                </article>
-                <article class="queue-card">
-                  <h4>Validate add-back policy</h4>
-                  <small>PE portfolio reporting</small>
-                  <p>Ask deal partner whether systems integration can ever be included in adjusted EBITDA.</p>
-                </article>
-              </div>
-            </div>
+          <div class="deployment-context">
+            <strong>What CS is checking:</strong> did the saved setup survive the next real workbook, or did the customer have to correct the same rule again?
           </div>
 
-          <div class="matrix">
-            <div class="panel heatmap">
-              <div class="heat-title">
-                <div>
-                  <strong>Workflow step tracker</strong>
-                  <span>Read left to right. A step only advances after the prior step passes.</span>
-                </div>
-                <div class="heat-legend" aria-label="Heatmap legend">
-                  <span class="heat-key good">passed</span>
-                  <span class="heat-key watch">needs owner</span>
-                  <span class="heat-key bad">blocked</span>
-                  <span class="heat-key">not started</span>
-                </div>
-              </div>
-              <div class="heat-row header">
-                <span>Workflow</span>
-                <span>1. Source mapped</span>
-                <span>2. Rule locked</span>
-                <span>3. User accepted</span>
-                <span>4. Next run proved</span>
-              </div>
-              <div class="heat-row">
-                <span>HVAC budget review</span>
-                <i class="heat-cell bad"></i>
-                <i class="heat-cell"></i>
-                <i class="heat-cell"></i>
-                <i class="heat-cell"></i>
-              </div>
-              <div class="heat-row">
-                <span>PE portfolio reporting</span>
-                <i class="heat-cell good"></i>
-                <i class="heat-cell watch"></i>
-                <i class="heat-cell"></i>
-                <i class="heat-cell"></i>
-              </div>
+          <div class="deployment-table" aria-label="Pilot account deployment status">
+            <div class="deploy-header">
+              <span>Workflow</span>
+              <span>Rules Endex should carry forward</span>
+              <span>Status</span>
+              <span>Customer Success action</span>
+              <span>Next test</span>
             </div>
 
-            <div class="panel signal-card">
-              <p class="label">Current signal</p>
-              <h4>Customer used Endex, but corrected the same rule again.</h4>
-              <p>That is not an adoption issue. It is a deployment issue: the saved context is too vague to survive the next cycle.</p>
-              <div class="signal-detail">
-                <div><b>Observed:</b> account 4025 manually changed from Service Revenue to Repair Revenue.</div>
-                <div><b>CS action:</b> lock the mapping rule with CFO and controller.</div>
-                <div><b>Next test:</b> July export maps account 4025 correctly without another correction.</div>
+            <article class="deploy-row">
+              <div class="deploy-cell">
+                <h4>HVAC budget review</h4>
+                <small>Trigger: NetSuite actuals import into budget-vs-actuals workbook.</small>
               </div>
-            </div>
+              <div class="deploy-cell">
+                <div class="rule-stack">
+                  <span class="rule-chip">4025 -> Repair Revenue</span>
+                  <span class="rule-chip">6125 excluded from run-rate</span>
+                  <span class="rule-chip">8% variance threshold</span>
+                  <span class="rule-chip">CFO board wording</span>
+                </div>
+              </div>
+              <div class="deploy-cell deploy-status">
+                <span class="status-pill blocked">Blocked</span>
+                <div class="step-path" aria-label="Blocked at rule lock">
+                  <span class="step-dot bad"></span>
+                  <span class="step-dot"></span>
+                  <span class="step-dot"></span>
+                  <span class="step-dot"></span>
+                </div>
+                <span class="step-caption">Source mapping broke before the rule could be locked.</span>
+              </div>
+              <div class="deploy-cell">
+                <p>Confirm account 4025 treatment with the CFO and controller before July close.</p>
+              </div>
+              <div class="deploy-cell">
+                <p>July export maps account 4025 correctly without another manual correction.</p>
+              </div>
+            </article>
+
+            <article class="deploy-row">
+              <div class="deploy-cell">
+                <h4>PE portfolio reporting</h4>
+                <small>Trigger: PortCo monthly package into sponsor reporting template.</small>
+              </div>
+              <div class="deploy-cell">
+                <div class="rule-stack">
+                  <span class="rule-chip">Implementation fees non-recurring</span>
+                  <span class="rule-chip">Integration add-back needs partner approval</span>
+                  <span class="rule-chip">Covenant headroom formula</span>
+                </div>
+              </div>
+              <div class="deploy-cell deploy-status">
+                <span class="status-pill watch">Needs owner</span>
+                <div class="step-path" aria-label="Source mapped, waiting on rule owner">
+                  <span class="step-dot good"></span>
+                  <span class="step-dot watch"></span>
+                  <span class="step-dot"></span>
+                  <span class="step-dot"></span>
+                </div>
+                <span class="step-caption">Source mapping held; rule definition needs partner approval.</span>
+              </div>
+              <div class="deploy-cell">
+                <p>Ask deal partner whether systems integration can ever be included in adjusted EBITDA.</p>
+              </div>
+              <div class="deploy-cell">
+                <p>Next PortCo package keeps the approved add-back policy without associate edits.</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
