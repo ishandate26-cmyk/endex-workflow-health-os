@@ -1,6 +1,6 @@
 # Endex Workflow Health OS
 
-Companion artifact for the Endex case assessment.
+Internal CS workflow-health mockup for the Endex case assessment.
 
 This repo does **not** attempt to rebuild Endex. It sketches the operating layer I would build around Endex customer usage to answer one question:
 
