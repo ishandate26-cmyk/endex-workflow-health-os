@@ -6,21 +6,21 @@
   <title>Endex CS Tracking Mock</title>
   <style>
     :root {
-      --ink: #071018;
-      --muted: #62707d;
-      --line: #e2e8ed;
-      --soft: #f7f9fa;
-      --green: #00a878;
-      --blue: #5277d9;
-      --gold: #d49a12;
-      --red: #dc6b5d;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e0e7;
+      --soft: #f8fafc;
+      --green: #087f6a;
+      --blue: #526071;
+      --gold: #9a6700;
+      --red: #b65b4b;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: #f6f8f7;
+      background: #f6f7f7;
       color: var(--ink);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.35;
@@ -129,10 +129,10 @@
       display: inline-block;
     }
 
-    .box.green { background: rgba(0, 168, 120, .28); }
-    .box.blue { background: rgba(82, 119, 217, .22); }
-    .box.gold { background: rgba(212, 154, 18, .24); }
-    .box.red { background: rgba(220, 107, 93, .22); }
+    .box.green { background: rgba(8, 127, 106, .22); }
+    .box.blue { background: rgba(82, 96, 113, .2); }
+    .box.gold { background: rgba(154, 103, 0, .2); }
+    .box.red { background: rgba(182, 91, 75, .2); }
 
     .legend span {
       display: inline-flex;
@@ -165,10 +165,10 @@
       background: var(--line);
     }
 
-    .metric.good { background: rgba(0, 168, 120, .07); }
-    .metric.info { background: rgba(82, 119, 217, .07); }
-    .metric.warn { background: rgba(212, 154, 18, .08); }
-    .metric.bad { background: rgba(220, 107, 93, .07); }
+    .metric.good,
+    .metric.info,
+    .metric.warn,
+    .metric.bad { background: #fff; }
 
     .metric.good::before { background: var(--green); }
     .metric.info::before { background: var(--blue); }
@@ -283,10 +283,10 @@
 
     .gridline { stroke: var(--line); stroke-width: 1; }
     .path { fill: none; stroke: #cfd7de; stroke-width: 3; stroke-linecap: round; }
-    .path.good { stroke: rgba(0, 168, 120, .35); }
-    .path.warn { stroke: rgba(212, 154, 18, .35); }
-    .path.bad { stroke: rgba(220, 107, 93, .35); }
-    .path.info { stroke: rgba(82, 119, 217, .35); }
+    .path.good { stroke: rgba(8, 127, 106, .28); }
+    .path.warn { stroke: rgba(154, 103, 0, .28); }
+    .path.bad { stroke: rgba(182, 91, 75, .28); }
+    .path.info { stroke: rgba(82, 96, 113, .28); }
 
     .dot {
       stroke: #fff;
@@ -346,10 +346,10 @@
       background: #fff;
     }
 
-    .cell-strong { background: rgba(0, 168, 120, .18); color: #006b55 !important; font-weight: 720; }
-    .cell-medium { background: rgba(82, 119, 217, .14); color: #2457c5 !important; font-weight: 720; }
-    .cell-watch { background: rgba(212, 154, 18, .16); color: #8a5f00 !important; font-weight: 720; }
-    .cell-risk { background: rgba(220, 107, 93, .14); color: #a13d32 !important; font-weight: 720; }
+    .cell-strong { background: rgba(8, 127, 106, .1); color: #0f5f52 !important; font-weight: 720; }
+    .cell-medium { background: rgba(82, 96, 113, .1); color: #3f4c5c !important; font-weight: 720; }
+    .cell-watch { background: rgba(154, 103, 0, .1); color: #6f4a00 !important; font-weight: 720; }
+    .cell-risk { background: rgba(182, 91, 75, .1); color: #874237 !important; font-weight: 720; }
 
     .examples {
       display: grid;
@@ -510,9 +510,7 @@
       padding: 12px;
       border: 1px solid #d7e2dc;
       border-radius: 10px;
-      background:
-        linear-gradient(90deg, rgba(0, 168, 120, .08), transparent 45%),
-        #fbfdfc;
+      background: #fff;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
     }
 
@@ -530,7 +528,7 @@
       gap: 12px;
       padding: 10px 12px;
       border-bottom: 1px solid var(--line);
-      background: #f4f8f6;
+      background: #f8fafc;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size: 11px;
       color: #46545d;
@@ -569,12 +567,13 @@
       padding: 10px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--soft);
+      background: #fff;
     }
 
     .nudge-box.review {
-      background: #fff8ec;
-      border-color: rgba(212, 154, 18, .28);
+      background: #fff;
+      border-color: rgba(154, 103, 0, .3);
+      box-shadow: inset 3px 0 0 rgba(154, 103, 0, .22);
     }
 
     .nudge-box strong {
@@ -620,7 +619,7 @@
     }
 
     .nudge-btn.primary {
-      border-color: rgba(0, 168, 120, .45);
+      border-color: rgba(8, 127, 106, .45);
       background: var(--green);
       color: #fff;
     }
@@ -686,10 +685,10 @@
       justify-content: flex-start;
     }
 
-    .step.good { border-color: var(--green); background: rgba(0, 168, 120, .08); }
-    .step.info { border-color: var(--blue); background: rgba(82, 119, 217, .08); }
-    .step.warn { border-color: var(--gold); background: rgba(212, 154, 18, .08); }
-    .step.bad { border-color: var(--red); background: rgba(220, 107, 93, .08); }
+    .step.good,
+    .step.info,
+    .step.warn,
+    .step.bad { background: #fff; }
 
     .step strong {
       font-size: 11px;
