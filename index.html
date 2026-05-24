@@ -766,34 +766,100 @@
     }
 
     .user-contrast {
+      position: relative;
+      overflow: hidden;
       padding: 22px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      background: rgba(255, 253, 248, .82);
+      background:
+        linear-gradient(rgba(217, 204, 182, .22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 204, 182, .16) 1px, transparent 1px),
+        radial-gradient(circle at 85% 5%, rgba(185, 134, 44, .10), transparent 32%),
+        rgba(255, 253, 248, .88);
+      background-size: 100% 32px, 42px 100%, auto, auto;
       box-shadow: var(--shadow);
     }
 
+    .user-contrast::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle, rgba(16, 36, 31, .05) 1px, transparent 1.4px);
+      background-size: 18px 18px;
+      mix-blend-mode: multiply;
+      opacity: .55;
+    }
+
+    .user-contrast::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -38px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(217, 204, 182, .72);
+      border-radius: 50%;
+      background: rgba(244, 238, 228, .48);
+    }
+
     .user-contrast h3 {
+      position: relative;
       margin: 0 0 12px;
       font-size: 22px;
       letter-spacing: -.02em;
+      z-index: 1;
     }
 
     .difference-list {
+      position: relative;
       display: grid;
-      gap: 12px;
+      gap: 10px;
+      z-index: 1;
+      counter-reset: view-card;
     }
 
     .difference {
-      padding: 14px;
-      border-radius: 16px;
-      background: #f4eee4;
+      position: relative;
+      padding: 14px 14px 14px 48px;
+      border-radius: 15px;
+      background:
+        linear-gradient(135deg, rgba(255, 253, 248, .92), rgba(244, 238, 228, .92));
       border: 1px solid var(--line);
+      box-shadow: 0 9px 22px rgba(50, 39, 22, .07);
+    }
+
+    .difference::before {
+      counter-increment: view-card;
+      content: counter(view-card);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--green-2);
+      color: #fffdf8;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .difference::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 42px;
+      bottom: 12px;
+      width: 1px;
+      background: rgba(15, 111, 80, .18);
     }
 
     .difference strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       color: var(--green-2);
       font-size: 12px;
       font-weight: 860;
@@ -804,7 +870,8 @@
     .difference p {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
+      line-height: 1.38;
     }
 
     @media (max-width: 1080px) {
