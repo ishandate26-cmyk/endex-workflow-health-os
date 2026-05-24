@@ -298,6 +298,10 @@
       text-transform: uppercase;
     }
 
+    .deploy-header span:nth-child(3) {
+      text-align: center;
+    }
+
     .deploy-row {
       padding: 14px;
       border-bottom: 1px solid var(--dark-line);
@@ -358,6 +362,8 @@
       display: grid;
       gap: 10px;
       align-content: start;
+      justify-items: center;
+      text-align: center;
     }
 
     .status-pill {
@@ -426,6 +432,7 @@
       color: rgba(255, 253, 248, .56);
       font-size: 11px;
       line-height: 1.3;
+      max-width: 210px;
     }
 
     .excel-shell {
@@ -791,7 +798,7 @@
             <div class="deploy-header">
               <span>Workflow</span>
               <span>Rules Endex should carry forward</span>
-              <span>Status</span>
+              <span>Current step</span>
               <span>Customer Success action</span>
               <span>Next test</span>
             </div>
@@ -810,8 +817,8 @@
                 </div>
               </div>
               <div class="deploy-cell deploy-status">
-                <span class="status-pill blocked">Blocked</span>
-                <div class="step-path" aria-label="Blocked at rule lock">
+                <span class="status-pill blocked">Source issue</span>
+                <div class="step-path" aria-label="Source issue before rule lock">
                   <span class="step"><span class="step-dot bad"></span><span class="step-label">Source</span></span>
                   <span class="step"><span class="step-dot"></span><span class="step-label">Rule</span></span>
                   <span class="step"><span class="step-dot"></span><span class="step-label">User</span></span>
@@ -840,7 +847,7 @@
                 </div>
               </div>
               <div class="deploy-cell deploy-status">
-                <span class="status-pill watch">Awaiting approval</span>
+                <span class="status-pill watch">Rule approval</span>
                 <div class="step-path" aria-label="Source mapped, awaiting rule approval">
                   <span class="step"><span class="step-dot good"></span><span class="step-label">Source</span></span>
                   <span class="step"><span class="step-dot watch"></span><span class="step-label">Rule</span></span>
