@@ -18,7 +18,7 @@ The motion:
 2. Product signals reveal repeated behavior.
 3. Endex infers likely repeated-work patterns.
 4. CS confirms and hardens the workflow.
-5. Reuse, trust, stakeholder spread, and expansion are tracked over time.
+5. The next cycle becomes the test: embedded, still calibrating, blocked, or ready for a CS next move.
 
 ## What This Prototype Does
 
@@ -72,4 +72,4 @@ The important distinction:
 - Product signals tell us what users did.
 - Pattern inference tells us what users may be starting to depend on.
 - CS interventions turn emerging patterns into retained, expanding account behavior.
-- GTM uses repeated workflow proof to expand into adjacent teams and use cases.
+- GTM expands only after the next cycle proves the workflow is getting easier to keep inside Endex.

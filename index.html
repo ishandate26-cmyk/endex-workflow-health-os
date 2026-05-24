@@ -633,14 +633,14 @@
 
     <section class="metrics" aria-label="Deployment snapshot">
       <div class="metric good">
-        <span class="value">2</span>
+        <span class="value">1</span>
         <span class="label">Embedded</span>
         <p>Next cycle was faster and reviewer format held.</p>
       </div>
       <div class="metric info">
         <span class="value">1</span>
-        <span class="label">Learning</span>
-        <p>Workflow repeated, but context still needs review.</p>
+        <span class="label">Still Calibrating</span>
+        <p>Workflow repeated, but saved context still needed corrections.</p>
       </div>
       <div class="metric bad">
         <span class="value">1</span>
@@ -649,8 +649,8 @@
       </div>
       <div class="metric warn">
         <span class="value">3</span>
-        <span class="label">CS Actions</span>
-        <p>Encode context, test next cycle, expand only after proof.</p>
+        <span class="label">Next Moves</span>
+        <p>CS actions waiting: encode context, retest, expand after proof.</p>
       </div>
     </section>
 
@@ -659,8 +659,8 @@
       <p class="caption">Each row asks the CS question that matters in a pilot: did the next cycle of the workflow get easier because Endex retained the right context?</p>
       <div class="legend">
         <span><i class="swatch good"></i>embedded</span>
-        <span><i class="swatch info"></i>learning</span>
-        <span><i class="swatch warn"></i>needs review</span>
+        <span><i class="swatch info"></i>still calibrating</span>
+        <span><i class="swatch warn"></i>next move</span>
         <span><i class="swatch bad"></i>blocked</span>
       </div>
       <div class="visual">
@@ -698,7 +698,7 @@
           <circle class="dot bad" cx="735" cy="185" r="9" opacity=".25" />
           <circle class="dot bad" cx="885" cy="185" r="9" opacity=".25" />
           <rect class="callout" x="930" y="162" width="150" height="46" />
-          <text class="callout-text" x="944" y="181">Needs user fix</text>
+          <text class="callout-text" x="944" y="181">Blocked</text>
           <text class="callout-muted" x="944" y="198">account mapping</text>
 
           <text class="account" x="20" y="268">Pilot C - Event-Driven</text>
@@ -710,8 +710,8 @@
           <circle class="dot warn" cx="735" cy="275" r="9" opacity=".25" />
           <circle class="dot warn" cx="885" cy="275" r="9" opacity=".25" />
           <rect class="callout" x="930" y="252" width="150" height="46" />
-          <text class="callout-text" x="944" y="271">Needs trigger</text>
-          <text class="callout-muted" x="944" y="288">next deal event</text>
+          <text class="callout-text" x="944" y="271">Next move</text>
+          <text class="callout-muted" x="944" y="288">wait for live deal</text>
 
           <text class="account" x="20" y="358">Pilot D - Accounting Close</text>
           <text class="segment" x="20" y="378">accounting / close</text>
@@ -722,7 +722,7 @@
           <circle class="dot warn" cx="735" cy="365" r="9" opacity=".25" />
           <circle class="dot warn" cx="885" cy="365" r="9" opacity=".25" />
           <rect class="callout" x="930" y="342" width="150" height="46" />
-          <text class="callout-text" x="944" y="361">Learning</text>
+          <text class="callout-text" x="944" y="361">Still calibrating</text>
           <text class="callout-muted" x="944" y="378">close workbook</text>
 
           <text class="small" x="260" y="490">real workbook</text>
@@ -800,7 +800,7 @@
             <strong>Saved mapping must hold</strong>
             <span>Only new exceptions should need review.</span>
           </div>
-          <span class="status-chip bad">Fix mapping</span>
+          <span class="status-chip bad">Blocked</span>
         </article>
 
         <article class="workflow-row warn">
@@ -822,7 +822,7 @@
             <strong>Committee package repeats</strong>
             <span>Fewer rewrites on the next deal.</span>
           </div>
-          <span class="status-chip warn">Review</span>
+          <span class="status-chip warn">Next move</span>
         </article>
 
         <article class="workflow-row info">
@@ -844,7 +844,7 @@
             <strong>Close starts with support</strong>
             <span>Reviewer wording carries forward.</span>
           </div>
-          <span class="status-chip info">Learning</span>
+          <span class="status-chip info">Still calibrating</span>
         </article>
       </div>
     </section>
