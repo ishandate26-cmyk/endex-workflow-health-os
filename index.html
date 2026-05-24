@@ -282,7 +282,7 @@
     .deploy-header,
     .deploy-row {
       display: grid;
-      grid-template-columns: 1fr 1.35fr .86fr 1.1fr 1.1fr;
+      grid-template-columns: .92fr 1.2fr 1.12fr 1.14fr 1.14fr;
       gap: 12px;
       align-items: stretch;
     }
@@ -356,7 +356,7 @@
 
     .deploy-status {
       display: grid;
-      gap: 8px;
+      gap: 10px;
       align-content: start;
     }
 
@@ -386,9 +386,17 @@
     .status-pill.watch::before { background: var(--amber); }
 
     .step-path {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+      align-items: start;
+    }
+
+    .step {
+      display: grid;
+      justify-items: center;
       gap: 5px;
-      align-items: center;
+      min-width: 0;
     }
 
     .step-dot {
@@ -402,6 +410,17 @@
     .step-dot.good { background: var(--green); border-color: rgba(226, 240, 233, .28); }
     .step-dot.watch { background: var(--amber); border-color: rgba(255, 244, 216, .25); }
     .step-dot.bad { background: var(--clay); border-color: rgba(255, 234, 226, .25); }
+
+    .step-label {
+      max-width: 48px;
+      color: rgba(255, 253, 248, .48);
+      font-size: 8px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: .07em;
+      text-align: center;
+      text-transform: uppercase;
+    }
 
     .step-caption {
       color: rgba(255, 253, 248, .56);
@@ -793,10 +812,10 @@
               <div class="deploy-cell deploy-status">
                 <span class="status-pill blocked">Blocked</span>
                 <div class="step-path" aria-label="Blocked at rule lock">
-                  <span class="step-dot bad"></span>
-                  <span class="step-dot"></span>
-                  <span class="step-dot"></span>
-                  <span class="step-dot"></span>
+                  <span class="step"><span class="step-dot bad"></span><span class="step-label">Source</span></span>
+                  <span class="step"><span class="step-dot"></span><span class="step-label">Rule</span></span>
+                  <span class="step"><span class="step-dot"></span><span class="step-label">User</span></span>
+                  <span class="step"><span class="step-dot"></span><span class="step-label">Proof</span></span>
                 </div>
                 <span class="step-caption">Source mapping broke before the rule could be locked.</span>
               </div>
@@ -822,11 +841,11 @@
               </div>
               <div class="deploy-cell deploy-status">
                 <span class="status-pill watch">Awaiting approval</span>
-                <div class="step-path" aria-label="Source mapped, waiting on rule owner">
-                  <span class="step-dot good"></span>
-                  <span class="step-dot watch"></span>
-                  <span class="step-dot"></span>
-                  <span class="step-dot"></span>
+                <div class="step-path" aria-label="Source mapped, awaiting rule approval">
+                  <span class="step"><span class="step-dot good"></span><span class="step-label">Source</span></span>
+                  <span class="step"><span class="step-dot watch"></span><span class="step-label">Rule</span></span>
+                  <span class="step"><span class="step-dot"></span><span class="step-label">User</span></span>
+                  <span class="step"><span class="step-dot"></span><span class="step-label">Proof</span></span>
                 </div>
                 <span class="step-caption">Source mapping held; rule definition needs partner approval.</span>
               </div>
