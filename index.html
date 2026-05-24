@@ -19,6 +19,8 @@
       --gold-rgb: 146, 115, 67;
       --red: #9e6158;
       --red-rgb: 158, 97, 88;
+      --wait: #6d6a5f;
+      --wait-rgb: 109, 106, 95;
     }
 
     * { box-sizing: border-box; }
@@ -179,6 +181,7 @@
     .metric.info::before { background: var(--blue); }
     .metric.warn::before { background: var(--gold); }
     .metric.bad::before { background: var(--red); }
+    .metric.waiting::before { background: var(--wait); }
 
     .metric .value {
       display: block;
@@ -246,6 +249,7 @@
     .info { background: var(--blue); }
     .warn { background: var(--gold); }
     .bad { background: var(--red); }
+    .swatch.waiting { background: var(--wait); }
 
     .visual {
       width: 100%;
@@ -292,6 +296,7 @@
     .path.warn { stroke: rgba(var(--gold-rgb), .22); }
     .path.bad { stroke: rgba(var(--red-rgb), .22); }
     .path.info { stroke: rgba(var(--blue-rgb), .22); }
+    .path.waiting { stroke: rgba(var(--wait-rgb), .22); }
 
     .dot {
       stroke: #fff;
@@ -302,6 +307,7 @@
     .dot.info { fill: var(--blue); }
     .dot.warn { fill: var(--gold); }
     .dot.bad { fill: var(--red); }
+    .dot.waiting { fill: var(--wait); }
 
     .callout {
       fill: #fff;
@@ -367,6 +373,22 @@
       gap: 10px;
     }
 
+    .nudge-section {
+      margin-top: 34px;
+      padding: 22px;
+      border: 1px solid #d1d8d3;
+      border-radius: 14px;
+      background: #eef1ee;
+    }
+
+    .nudge-section h2 {
+      margin-bottom: 8px;
+    }
+
+    .nudge-section .caption {
+      color: #5d6a65;
+    }
+
     .nudge-guide {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -378,7 +400,7 @@
       padding: 12px 13px;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: #fff;
+      background: #fbfbfa;
     }
 
     .nudge-guide strong {
@@ -426,6 +448,7 @@
     .workflow-row.info::before { background: var(--blue); }
     .workflow-row.warn::before { background: var(--gold); }
     .workflow-row.bad::before { background: var(--red); }
+    .workflow-row.waiting::before { background: var(--wait); }
 
     .workflow-name h3 {
       margin: 0 0 5px;
@@ -505,6 +528,7 @@
     .status-chip.info::before { background: var(--blue); }
     .status-chip.warn::before { background: var(--gold); }
     .status-chip.bad::before { background: var(--red); }
+    .status-chip.waiting::before { background: var(--wait); }
 
     .nudge-card {
       grid-column: 1 / -1;
@@ -840,10 +864,10 @@
         <span class="label">Blocked</span>
         <p>Next cycle failed because a core mapping was wrong.</p>
       </div>
-      <div class="metric warn">
+      <div class="metric waiting">
         <span class="value">3</span>
-        <span class="label">Next Moves</span>
-        <p>CS actions waiting: encode context, retest, expand after proof.</p>
+        <span class="label">Needs CS Action</span>
+        <p>Retest, fix mapping, or wait for second-cycle proof.</p>
       </div>
     </section>
 
@@ -853,7 +877,7 @@
       <div class="legend">
         <span><i class="swatch good"></i>embedded</span>
         <span><i class="swatch info"></i>still calibrating</span>
-        <span><i class="swatch warn"></i>next move</span>
+        <span><i class="swatch waiting"></i>waiting for proof</span>
         <span><i class="swatch bad"></i>blocked</span>
       </div>
       <div class="visual">
@@ -896,15 +920,15 @@
 
           <text class="account" x="20" y="268">Pilot C - Event-Driven</text>
           <text class="segment" x="20" y="288">event-driven / catalyst</text>
-          <path class="path warn" d="M285 275 L435 275" />
+          <path class="path waiting" d="M285 275 L435 275" />
           <circle class="dot good" cx="285" cy="275" r="9" />
-          <circle class="dot warn" cx="435" cy="275" r="9" />
-          <circle class="dot warn" cx="585" cy="275" r="9" opacity=".25" />
-          <circle class="dot warn" cx="735" cy="275" r="9" opacity=".25" />
-          <circle class="dot warn" cx="885" cy="275" r="9" opacity=".25" />
+          <circle class="dot waiting" cx="435" cy="275" r="9" />
+          <circle class="dot waiting" cx="585" cy="275" r="9" opacity=".25" />
+          <circle class="dot waiting" cx="735" cy="275" r="9" opacity=".25" />
+          <circle class="dot waiting" cx="885" cy="275" r="9" opacity=".25" />
           <rect class="callout" x="930" y="252" width="150" height="46" />
-          <text class="callout-text" x="944" y="271">Next move</text>
-          <text class="callout-muted" x="944" y="288">wait for live deal</text>
+          <text class="callout-text" x="944" y="271">Waiting for proof</text>
+          <text class="callout-muted" x="944" y="288">next live deal</text>
 
           <text class="account" x="20" y="358">Pilot D - Accounting Close</text>
           <text class="segment" x="20" y="378">accounting / close</text>
@@ -949,21 +973,21 @@
       </div>
     </section>
 
-    <section>
-      <h2>How the Nudge Becomes a CS Signal</h2>
-      <p class="caption">CS should turn Endex’s existing primitives into a deployed workflow: pick one recurring customer process, encode the customer-specific context, and test whether the next cycle starts faster.</p>
+    <section class="nudge-section">
+      <h2>From Excel Nudge to CS Follow-up</h2>
+      <p class="caption">The point is simple: Endex offers a saved starting point inside Excel, the user decides what to reuse, and CS uses that response to learn whether the workflow is actually becoming easier.</p>
       <div class="nudge-guide" aria-label="How to read the workflow nudge cards">
         <div>
-          <strong>1. Detect</strong>
-          <p>Endex recognizes a recurring workbook or workflow family.</p>
+          <strong>1. Recognize</strong>
+          <p>A user opens a similar workbook, source folder, or Excel task.</p>
         </div>
         <div>
-          <strong>2. Nudge</strong>
-          <p>The user sees saved context, new exceptions, and clear choices.</p>
+          <strong>2. Offer reuse</strong>
+          <p>Endex shows what can carry forward and what still needs review.</p>
         </div>
         <div>
-          <strong>3. Intervene</strong>
-          <p>CS uses the response to fix the blocker before the next cycle.</p>
+          <strong>3. Follow up</strong>
+          <p>CS watches whether the user accepted, corrected, or rejected the setup.</p>
         </div>
       </div>
       <div class="workflow-list">
@@ -1090,64 +1114,64 @@
           </div>
         </article>
 
-        <article class="workflow-row with-nudge warn">
+        <article class="workflow-row with-nudge waiting">
           <div class="workflow-name">
             <h3>Private markets deal team</h3>
-            <span>LBO + CIM → next live deal</span>
+            <span>CIM + LBO model → first IC memo draft</span>
           </div>
           <div>
             <span class="row-label">Context encoded</span>
             <div class="pills">
-              <span class="pill">IC skeleton</span>
-              <span class="pill">model checks</span>
-              <span class="pill">diligence sources</span>
-              <span class="pill">partner edits</span>
+              <span class="pill">memo section order</span>
+              <span class="pill">model QA checks</span>
+              <span class="pill">source list</span>
+              <span class="pill">partner wording</span>
             </div>
           </div>
           <div class="proof">
             <span class="row-label">Next Cycle Test</span>
-            <strong>Committee package repeats</strong>
-            <span>Fewer rewrites on the next deal.</span>
+            <strong>Next deal starts cleaner</strong>
+            <span>Same review steps, new deal assumptions.</span>
           </div>
-          <span class="status-chip warn">Next move</span>
+          <span class="status-chip waiting">Waiting for proof</span>
           <div class="nudge-card">
             <div class="nudge-panel">
               <div class="nudge-topbar">
                 <strong>Endex nudge</strong>
-                <span>inside Excel · new deal folder detected</span>
+                <span>inside Excel · CIM and LBO opened</span>
               </div>
               <div class="nudge-body">
-                <h4>This looks like another IC memo build.</h4>
-                <p>Start from the firm’s saved IC motion, then isolate the deal-specific diligence questions.</p>
+                <h4>This looks like an IC memo draft.</h4>
+                <p>Reuse the last deal’s memo setup and model check list. Do not reuse the old deal assumptions.</p>
                 <div class="nudge-columns">
                   <div class="nudge-box">
                     <strong>Carry forward</strong>
                     <ul>
-                      <li>IC memo skeleton</li>
-                      <li>Model quality checks</li>
-                      <li>Diligence source checklist</li>
+                      <li>Memo section order and formatting</li>
+                      <li>Source list: CIM, QoE, lender deck, customer data</li>
+                      <li>Model checks: links, debt schedule, returns bridge</li>
                     </ul>
                   </div>
                   <div class="nudge-box review">
                     <strong>Needs judgment</strong>
                     <ul>
-                      <li>Addback quality</li>
-                      <li>Customer concentration</li>
-                      <li>Debt terms and sponsor thesis</li>
+                      <li>Revenue quality and add-backs</li>
+                      <li>Customer concentration and churn</li>
+                      <li>Debt terms, cases, and sponsor thesis</li>
                     </ul>
                   </div>
                 </div>
                 <div class="nudge-actions">
-                  <span class="nudge-btn primary">Use IC workflow</span>
-                  <span class="nudge-btn">Review deal assumptions</span>
+                  <span class="nudge-btn primary">Use memo setup</span>
+                  <span class="nudge-btn">Review deal-specific items</span>
                   <span class="nudge-btn">Start blank</span>
                 </div>
               </div>
             </div>
             <div class="cs-signal">
-              <span class="row-label">CS signal created</span>
-              <strong>Context is ready, but no live second cycle yet.</strong>
-              <p>Next move is to wait for the next active deal, then verify whether the team actually reuses the saved motion.</p>
+              <span class="row-label">CS signal to track</span>
+              <strong>Not embedded yet. This is only a candidate workflow.</strong>
+              <p>On the next live deal, CS checks whether the associate reused the memo setup, accepted the model checks, and exported a cleaner first IC draft.</p>
             </div>
           </div>
         </article>
