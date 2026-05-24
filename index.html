@@ -376,6 +376,10 @@
       overflow: hidden;
     }
 
+    .workflow-row.with-nudge {
+      align-items: start;
+    }
+
     .workflow-row::before {
       content: "";
       position: absolute;
@@ -467,6 +471,157 @@
     .status-chip.info::before { background: var(--blue); }
     .status-chip.warn::before { background: var(--gold); }
     .status-chip.bad::before { background: var(--red); }
+
+    .nudge-card {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
+      gap: 14px;
+      margin-top: 2px;
+      padding: 14px;
+      border: 1px solid #d7e2dc;
+      border-radius: 10px;
+      background:
+        linear-gradient(90deg, rgba(0, 168, 120, .08), transparent 45%),
+        #fbfdfc;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
+    }
+
+    .nudge-panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .nudge-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #f4f8f6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      color: #46545d;
+    }
+
+    .nudge-topbar strong {
+      color: var(--green);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nudge-body {
+      padding: 13px 14px 14px;
+    }
+
+    .nudge-body h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .nudge-body p {
+      margin: 0 0 11px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nudge-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .nudge-box {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .nudge-box.review {
+      background: #fff8ec;
+      border-color: rgba(212, 154, 18, .28);
+    }
+
+    .nudge-box strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .nudge-box ul {
+      margin: 0;
+      padding-left: 16px;
+      color: var(--ink);
+      font-size: 12.5px;
+    }
+
+    .nudge-box li {
+      margin: 4px 0;
+      padding-left: 0;
+      font-size: 12.5px;
+    }
+
+    .nudge-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .nudge-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .nudge-btn.primary {
+      border-color: rgba(0, 168, 120, .45);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .cs-signal {
+      padding: 13px;
+      border-radius: 10px;
+      background: #071018;
+      color: #eff6f3;
+      min-height: 100%;
+    }
+
+    .cs-signal .row-label {
+      color: rgba(239, 246, 243, .68);
+      margin-bottom: 8px;
+    }
+
+    .cs-signal strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .cs-signal p {
+      margin: 0;
+      color: rgba(239, 246, 243, .76);
+      font-size: 12.5px;
+    }
 
     .example-card {
       border: 1px solid var(--line);
@@ -604,6 +759,8 @@
       .stage-guide { grid-template-columns: 1fr; }
       .examples { grid-template-columns: 1fr; }
       .workflow-row { grid-template-columns: 1fr; }
+      .nudge-card { grid-template-columns: 1fr; }
+      .nudge-columns { grid-template-columns: 1fr; }
       .status-chip { justify-self: start; }
       .flow { grid-template-columns: 1fr; }
       .arrow { transform: rotate(90deg); min-height: 20px; }
@@ -760,7 +917,7 @@
       <h2>What CS Should Make Concrete</h2>
       <p class="caption">The recommendation is not to invent features Endex already has. CS should make Memories, Firm Templates, citations, and data sources compound inside one real recurring workflow.</p>
       <div class="workflow-list">
-        <article class="workflow-row good">
+        <article class="workflow-row with-nudge good">
           <div class="workflow-name">
             <h3>Public markets analyst</h3>
             <span>NVDA earnings model → AMD update</span>
@@ -780,9 +937,49 @@
             <span>Output keeps the PM-ready structure.</span>
           </div>
           <span class="status-chip good">Embedded</span>
+          <div class="nudge-card">
+            <div class="nudge-panel">
+              <div class="nudge-topbar">
+                <strong>Endex nudge</strong>
+                <span>inside Excel · before model refresh</span>
+              </div>
+              <div class="nudge-body">
+                <h4>Looks like a semiconductor earnings update.</h4>
+                <p>Reuse the NVDA workflow context for AMD, then review the assumptions that actually changed.</p>
+                <div class="nudge-columns">
+                  <div class="nudge-box">
+                    <strong>Carry forward</strong>
+                    <ul>
+                      <li>Release, transcript, filing source order</li>
+                      <li>Model check sequence</li>
+                      <li>PM summary and citation style</li>
+                    </ul>
+                  </div>
+                  <div class="nudge-box review">
+                    <strong>Needs judgment</strong>
+                    <ul>
+                      <li>Gross margin bridge</li>
+                      <li>Capex and guide assumptions</li>
+                      <li>Current thesis debate</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="nudge-actions">
+                  <span class="nudge-btn primary">Reuse context</span>
+                  <span class="nudge-btn">Review assumptions</span>
+                  <span class="nudge-btn">Start blank</span>
+                </div>
+              </div>
+            </div>
+            <div class="cs-signal">
+              <span class="row-label">CS signal created</span>
+              <strong>Analyst accepted saved context and exported PM summary.</strong>
+              <p>Mark as embedded. Expansion conversation can reference a real second-cycle workflow, not generic usage.</p>
+            </div>
+          </div>
         </article>
 
-        <article class="workflow-row bad">
+        <article class="workflow-row with-nudge bad">
           <div class="workflow-name">
             <h3>HVAC company CFO</h3>
             <span>Budget-vs-actuals → June review</span>
@@ -801,9 +998,49 @@
             <span>Only new exceptions should need review.</span>
           </div>
           <span class="status-chip bad">Blocked</span>
+          <div class="nudge-card">
+            <div class="nudge-panel">
+              <div class="nudge-topbar">
+                <strong>Endex nudge</strong>
+                <span>inside Excel · after ERP import</span>
+              </div>
+              <div class="nudge-body">
+                <h4>Looks like the June budget review.</h4>
+                <p>Reuse May’s stable setup, but review the new items before commentary is sent to the owner.</p>
+                <div class="nudge-columns">
+                  <div class="nudge-box">
+                    <strong>Carry forward</strong>
+                    <ul>
+                      <li>COA mapping and variance threshold</li>
+                      <li>Board-output format</li>
+                      <li>Controller wording preferences</li>
+                    </ul>
+                  </div>
+                  <div class="nudge-box review">
+                    <strong>Needs judgment</strong>
+                    <ul>
+                      <li>Labor account 6215</li>
+                      <li>Repair revenue mapping</li>
+                      <li>One-time project exclusion</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="nudge-actions">
+                  <span class="nudge-btn primary">Apply stable setup</span>
+                  <span class="nudge-btn">Review exceptions</span>
+                  <span class="nudge-btn">Start fresh</span>
+                </div>
+              </div>
+            </div>
+            <div class="cs-signal">
+              <span class="row-label">CS signal created</span>
+              <strong>Repair revenue was corrected again.</strong>
+              <p>Intervene before next close: lock the mapping with CFO and controller instead of sending a generic check-in.</p>
+            </div>
+          </div>
         </article>
 
-        <article class="workflow-row warn">
+        <article class="workflow-row with-nudge warn">
           <div class="workflow-name">
             <h3>Private markets deal team</h3>
             <span>LBO + CIM → next live deal</span>
@@ -823,9 +1060,49 @@
             <span>Fewer rewrites on the next deal.</span>
           </div>
           <span class="status-chip warn">Next move</span>
+          <div class="nudge-card">
+            <div class="nudge-panel">
+              <div class="nudge-topbar">
+                <strong>Endex nudge</strong>
+                <span>inside Excel · new deal folder detected</span>
+              </div>
+              <div class="nudge-body">
+                <h4>This looks like another IC memo build.</h4>
+                <p>Start from the firm’s saved IC motion, then isolate the deal-specific diligence questions.</p>
+                <div class="nudge-columns">
+                  <div class="nudge-box">
+                    <strong>Carry forward</strong>
+                    <ul>
+                      <li>IC memo skeleton</li>
+                      <li>Model quality checks</li>
+                      <li>Diligence source checklist</li>
+                    </ul>
+                  </div>
+                  <div class="nudge-box review">
+                    <strong>Needs judgment</strong>
+                    <ul>
+                      <li>Addback quality</li>
+                      <li>Customer concentration</li>
+                      <li>Debt terms and sponsor thesis</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="nudge-actions">
+                  <span class="nudge-btn primary">Use IC workflow</span>
+                  <span class="nudge-btn">Review deal assumptions</span>
+                  <span class="nudge-btn">Start blank</span>
+                </div>
+              </div>
+            </div>
+            <div class="cs-signal">
+              <span class="row-label">CS signal created</span>
+              <strong>Context is ready, but no live second cycle yet.</strong>
+              <p>Next move is to wait for the next active deal, then verify whether the team actually reuses the saved motion.</p>
+            </div>
+          </div>
         </article>
 
-        <article class="workflow-row info">
+        <article class="workflow-row with-nudge info">
           <div class="workflow-name">
             <h3>Accounting team</h3>
             <span>Close workbook → next close</span>
@@ -845,6 +1122,46 @@
             <span>Reviewer wording carries forward.</span>
           </div>
           <span class="status-chip info">Still calibrating</span>
+          <div class="nudge-card">
+            <div class="nudge-panel">
+              <div class="nudge-topbar">
+                <strong>Endex nudge</strong>
+                <span>inside Excel · close workbook opened</span>
+              </div>
+              <div class="nudge-body">
+                <h4>Looks like monthly close support.</h4>
+                <p>Reuse the close support checklist, then review new exceptions before controller sign-off.</p>
+                <div class="nudge-columns">
+                  <div class="nudge-box">
+                    <strong>Carry forward</strong>
+                    <ul>
+                      <li>Recurring account list</li>
+                      <li>Support-file requirements</li>
+                      <li>Sign-off and auditor wording</li>
+                    </ul>
+                  </div>
+                  <div class="nudge-box review">
+                    <strong>Needs judgment</strong>
+                    <ul>
+                      <li>New accrual account</li>
+                      <li>Bank reconciliation exception</li>
+                      <li>Open auditor request</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="nudge-actions">
+                  <span class="nudge-btn primary">Reuse close setup</span>
+                  <span class="nudge-btn">Review exceptions</span>
+                  <span class="nudge-btn">Start fresh</span>
+                </div>
+              </div>
+            </div>
+            <div class="cs-signal">
+              <span class="row-label">CS signal created</span>
+              <strong>Reviewer wording still changed after reuse.</strong>
+              <p>CS should calibrate the sign-off language with the controller before expanding this workflow.</p>
+            </div>
+          </div>
         </article>
       </div>
     </section>
