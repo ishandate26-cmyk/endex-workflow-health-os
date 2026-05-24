@@ -6,21 +6,26 @@
   <title>Endex CS Tracking Mock</title>
   <style>
     :root {
-      --ink: #111827;
-      --muted: #667085;
-      --line: #d9e0e7;
-      --soft: #f8fafc;
-      --green: #087f6a;
-      --blue: #526071;
-      --gold: #9a6700;
-      --red: #b65b4b;
+      --ink: #11161a;
+      --muted: #68737f;
+      --line: #d8dee3;
+      --soft: #f7f8f8;
+      --accent: #214a42;
+      --green: #2f6658;
+      --green-rgb: 47, 102, 88;
+      --blue: #64717f;
+      --blue-rgb: 100, 113, 127;
+      --gold: #927343;
+      --gold-rgb: 146, 115, 67;
+      --red: #9e6158;
+      --red-rgb: 158, 97, 88;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: #f6f7f7;
+      background: #f5f6f6;
       color: var(--ink);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.35;
@@ -43,7 +48,7 @@
 
     .eyebrow {
       margin: 0 0 8px;
-      color: var(--green);
+      color: var(--accent);
       font-size: 12px;
       font-weight: 760;
       letter-spacing: .08em;
@@ -129,10 +134,10 @@
       display: inline-block;
     }
 
-    .box.green { background: rgba(8, 127, 106, .22); }
-    .box.blue { background: rgba(82, 96, 113, .2); }
-    .box.gold { background: rgba(154, 103, 0, .2); }
-    .box.red { background: rgba(182, 91, 75, .2); }
+    .box.green { background: rgba(var(--green-rgb), .2); }
+    .box.blue { background: rgba(var(--blue-rgb), .18); }
+    .box.gold { background: rgba(var(--gold-rgb), .18); }
+    .box.red { background: rgba(var(--red-rgb), .18); }
 
     .legend span {
       display: inline-flex;
@@ -283,10 +288,10 @@
 
     .gridline { stroke: var(--line); stroke-width: 1; }
     .path { fill: none; stroke: #cfd7de; stroke-width: 3; stroke-linecap: round; }
-    .path.good { stroke: rgba(8, 127, 106, .28); }
-    .path.warn { stroke: rgba(154, 103, 0, .28); }
-    .path.bad { stroke: rgba(182, 91, 75, .28); }
-    .path.info { stroke: rgba(82, 96, 113, .28); }
+    .path.good { stroke: rgba(var(--green-rgb), .24); }
+    .path.warn { stroke: rgba(var(--gold-rgb), .22); }
+    .path.bad { stroke: rgba(var(--red-rgb), .22); }
+    .path.info { stroke: rgba(var(--blue-rgb), .22); }
 
     .dot {
       stroke: #fff;
@@ -346,10 +351,10 @@
       background: #fff;
     }
 
-    .cell-strong { background: rgba(8, 127, 106, .1); color: #0f5f52 !important; font-weight: 720; }
-    .cell-medium { background: rgba(82, 96, 113, .1); color: #3f4c5c !important; font-weight: 720; }
-    .cell-watch { background: rgba(154, 103, 0, .1); color: #6f4a00 !important; font-weight: 720; }
-    .cell-risk { background: rgba(182, 91, 75, .1); color: #874237 !important; font-weight: 720; }
+    .cell-strong { background: rgba(var(--green-rgb), .07); color: #295548 !important; font-weight: 720; }
+    .cell-medium { background: rgba(var(--blue-rgb), .07); color: #4f5a66 !important; font-weight: 720; }
+    .cell-watch { background: rgba(var(--gold-rgb), .08); color: #6d522d !important; font-weight: 720; }
+    .cell-risk { background: rgba(var(--red-rgb), .08); color: #784a43 !important; font-weight: 720; }
 
     .examples {
       display: grid;
@@ -379,7 +384,7 @@
     .nudge-guide strong {
       display: block;
       margin-bottom: 5px;
-      color: var(--green);
+      color: var(--accent);
       font-size: 11.5px;
       letter-spacing: .07em;
       text-transform: uppercase;
@@ -399,7 +404,7 @@
       padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #fff;
+      background: #fafbfb;
       box-shadow: 0 6px 18px rgba(7, 16, 24, .04);
       position: relative;
       overflow: hidden;
@@ -508,7 +513,7 @@
       gap: 12px;
       margin-top: 2px;
       padding: 12px;
-      border: 1px solid #d7e2dc;
+      border: 1px solid var(--line);
       border-radius: 10px;
       background: #fff;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
@@ -528,14 +533,14 @@
       gap: 12px;
       padding: 10px 12px;
       border-bottom: 1px solid var(--line);
-      background: #f8fafc;
+      background: #f7f8f9;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size: 11px;
       color: #46545d;
     }
 
     .nudge-topbar strong {
-      color: var(--green);
+      color: var(--accent);
       font-size: 11px;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -572,8 +577,8 @@
 
     .nudge-box.review {
       background: #fff;
-      border-color: rgba(154, 103, 0, .3);
-      box-shadow: inset 3px 0 0 rgba(154, 103, 0, .22);
+      border-color: rgba(var(--gold-rgb), .28);
+      box-shadow: inset 3px 0 0 rgba(var(--gold-rgb), .18);
     }
 
     .nudge-box strong {
@@ -619,17 +624,17 @@
     }
 
     .nudge-btn.primary {
-      border-color: rgba(8, 127, 106, .45);
-      background: var(--green);
+      border-color: var(--accent);
+      background: var(--accent);
       color: #fff;
     }
 
     .cs-signal {
       padding: 13px;
       border: 1px solid var(--line);
-      border-left: 4px solid var(--green);
+      border-left: 4px solid var(--accent);
       border-radius: 10px;
-      background: #fff;
+      background: #fbfcfc;
       color: var(--ink);
       min-height: 100%;
     }
@@ -733,7 +738,7 @@
 
     .summary strong {
       display: block;
-      color: var(--green);
+      color: var(--accent);
       font-size: 12px;
       letter-spacing: .06em;
       text-transform: uppercase;
@@ -768,7 +773,7 @@
     .loop strong {
       display: block;
       margin-bottom: 6px;
-      color: var(--green);
+      color: var(--accent);
       font-size: 12px;
       letter-spacing: .07em;
       text-transform: uppercase;
