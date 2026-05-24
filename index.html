@@ -391,7 +391,7 @@
 
     .nudge-guide {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       margin: 14px 0 14px;
     }
@@ -419,10 +419,7 @@
     }
 
     .workflow-row {
-      display: grid;
-      grid-template-columns: 260px minmax(360px, 1.2fr) minmax(300px, .9fr) 150px;
-      align-items: center;
-      gap: 16px;
+      display: block;
       padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -432,8 +429,11 @@
       overflow: hidden;
     }
 
-    .workflow-row.with-nudge {
-      align-items: start;
+    .workflow-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
     }
 
     .workflow-row::before {
@@ -461,6 +461,44 @@
     .action span {
       color: var(--muted);
       font-size: 12.5px;
+    }
+
+    .workflow-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 12px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .flow-cell {
+      min-height: 86px;
+      padding: 10px 12px;
+      border-left: 1px solid var(--line);
+    }
+
+    .flow-cell:first-child {
+      border-left: 0;
+    }
+
+    .flow-cell strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .flow-cell p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 650;
+      line-height: 1.32;
     }
 
     .row-label {
@@ -531,7 +569,6 @@
     .status-chip.waiting::before { background: var(--wait); }
 
     .nudge-card {
-      grid-column: 1 / -1;
       display: grid;
       grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
       gap: 12px;
@@ -819,6 +856,10 @@
       .examples { grid-template-columns: 1fr; }
       .nudge-guide { grid-template-columns: 1fr; }
       .workflow-row { grid-template-columns: 1fr; }
+      .workflow-header { display: grid; }
+      .workflow-flow { grid-template-columns: 1fr; }
+      .flow-cell { border-left: 0; border-top: 1px solid var(--line); }
+      .flow-cell:first-child { border-top: 0; }
       .nudge-card { grid-template-columns: 1fr; }
       .nudge-columns { grid-template-columns: 1fr; }
       .status-chip { justify-self: start; }
@@ -975,42 +1016,52 @@
 
     <section class="nudge-section">
       <h2>From Excel Nudge to CS Follow-up</h2>
-      <p class="caption">The point is simple: Endex offers a saved starting point inside Excel, the user decides what to reuse, and CS uses that response to learn whether the workflow is actually becoming easier.</p>
+      <p class="caption">Read each card left to right. The point is not to track vague engagement; it is to see whether Endex made the next real Excel run easier.</p>
       <div class="nudge-guide" aria-label="How to read the workflow nudge cards">
         <div>
-          <strong>1. Recognize</strong>
-          <p>A user opens a similar workbook, source folder, or Excel task.</p>
+          <strong>1. User starts</strong>
+          <p>A real workbook or source folder opens.</p>
         </div>
         <div>
-          <strong>2. Offer reuse</strong>
-          <p>Endex shows what can carry forward and what still needs review.</p>
+          <strong>2. Endex offers</strong>
+          <p>Reusable setup is separated from judgment calls.</p>
         </div>
         <div>
-          <strong>3. Follow up</strong>
-          <p>CS watches whether the user accepted, corrected, or rejected the setup.</p>
+          <strong>3. User chooses</strong>
+          <p>The analyst accepts, edits, rejects, or starts blank.</p>
+        </div>
+        <div>
+          <strong>4. CS follows up</strong>
+          <p>The response turns into a specific account action.</p>
         </div>
       </div>
       <div class="workflow-list">
         <article class="workflow-row with-nudge good">
-          <div class="workflow-name">
-            <h3>Public markets analyst</h3>
-            <span>NVDA earnings model → AMD update</span>
+          <div class="workflow-header">
+            <div class="workflow-name">
+              <h3>Public markets analyst</h3>
+              <span>NVDA earnings model → AMD update</span>
+            </div>
+            <span class="status-chip good">Embedded</span>
           </div>
-          <div>
-            <span class="row-label">Context encoded</span>
-            <div class="pills">
-              <span class="pill">source set</span>
-              <span class="pill">model tabs</span>
-              <span class="pill">KPI definitions</span>
-              <span class="pill">PM format</span>
+          <div class="workflow-flow">
+            <div class="flow-cell">
+              <strong>User starts</strong>
+              <p>Analyst opens an AMD earnings update after previously using Endex on NVDA.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>Endex offers</strong>
+              <p>Reuse source order, model checks, citation style, and PM-summary format.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>User chooses</strong>
+              <p>Accepts the setup, then reviews margin bridge, capex, guidance, and thesis changes.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>CS follows up</strong>
+              <p>Mark embedded only if the AMD run starts faster and exports in PM-ready form.</p>
             </div>
           </div>
-          <div class="proof">
-            <span class="row-label">Next Cycle Test</span>
-            <strong>AMD update starts faster</strong>
-            <span>Output keeps the PM-ready structure.</span>
-          </div>
-          <span class="status-chip good">Embedded</span>
           <div class="nudge-card">
             <div class="nudge-panel">
               <div class="nudge-topbar">
@@ -1054,24 +1105,31 @@
         </article>
 
         <article class="workflow-row with-nudge bad">
-          <div class="workflow-name">
-            <h3>HVAC company CFO</h3>
-            <span>Budget-vs-actuals → June review</span>
+          <div class="workflow-header">
+            <div class="workflow-name">
+              <h3>HVAC company CFO</h3>
+              <span>Budget-vs-actuals → June review</span>
+            </div>
+            <span class="status-chip bad">Blocked</span>
           </div>
-          <div>
-            <span class="row-label">Context encoded</span>
-            <div class="pills">
-              <span class="pill">COA mapping</span>
-              <span class="pill">variance threshold</span>
-              <span class="pill">owner language</span>
+          <div class="workflow-flow">
+            <div class="flow-cell">
+              <strong>User starts</strong>
+              <p>CFO imports the June ERP export into the monthly budget review workbook.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>Endex offers</strong>
+              <p>Reuse May’s COA mapping, variance thresholds, board format, and owner language.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>User chooses</strong>
+              <p>Applies the setup but corrects repair revenue mapping again.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>CS follows up</strong>
+              <p>Fix that mapping with the CFO and controller before next month.</p>
             </div>
           </div>
-          <div class="proof">
-            <span class="row-label">Next Cycle Test</span>
-            <strong>Saved mapping must hold</strong>
-            <span>Only new exceptions should need review.</span>
-          </div>
-          <span class="status-chip bad">Blocked</span>
           <div class="nudge-card">
             <div class="nudge-panel">
               <div class="nudge-topbar">
@@ -1115,25 +1173,31 @@
         </article>
 
         <article class="workflow-row with-nudge waiting">
-          <div class="workflow-name">
-            <h3>Private markets deal team</h3>
-            <span>CIM + LBO model → first IC memo draft</span>
+          <div class="workflow-header">
+            <div class="workflow-name">
+              <h3>Private markets deal team</h3>
+              <span>CIM + LBO model → first IC memo draft</span>
+            </div>
+            <span class="status-chip waiting">Waiting for proof</span>
           </div>
-          <div>
-            <span class="row-label">Context encoded</span>
-            <div class="pills">
-              <span class="pill">memo section order</span>
-              <span class="pill">model QA checks</span>
-              <span class="pill">source list</span>
-              <span class="pill">partner wording</span>
+          <div class="workflow-flow">
+            <div class="flow-cell">
+              <strong>User starts</strong>
+              <p>Associate opens a new CIM and LBO model to draft the first IC memo.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>Endex offers</strong>
+              <p>Reuse memo section order, diligence source list, and model QA checks.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>User chooses</strong>
+              <p>Can reuse structure, but must review add-backs, churn, debt terms, and thesis.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>CS follows up</strong>
+              <p>Wait for the next live deal before calling this embedded.</p>
             </div>
           </div>
-          <div class="proof">
-            <span class="row-label">Next Cycle Test</span>
-            <strong>Next deal starts cleaner</strong>
-            <span>Same review steps, new deal assumptions.</span>
-          </div>
-          <span class="status-chip waiting">Waiting for proof</span>
           <div class="nudge-card">
             <div class="nudge-panel">
               <div class="nudge-topbar">
@@ -1177,25 +1241,31 @@
         </article>
 
         <article class="workflow-row with-nudge info">
-          <div class="workflow-name">
-            <h3>Accounting team</h3>
-            <span>Close workbook → next close</span>
+          <div class="workflow-header">
+            <div class="workflow-name">
+              <h3>Accounting team</h3>
+              <span>Close workbook → next close</span>
+            </div>
+            <span class="status-chip info">Still calibrating</span>
           </div>
-          <div>
-            <span class="row-label">Context encoded</span>
-            <div class="pills">
-              <span class="pill">recurring accounts</span>
-              <span class="pill">support files</span>
-              <span class="pill">sign-offs</span>
-              <span class="pill">auditor wording</span>
+          <div class="workflow-flow">
+            <div class="flow-cell">
+              <strong>User starts</strong>
+              <p>Controller opens the next close workbook and support-file folder.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>Endex offers</strong>
+              <p>Reuse recurring account list, support requirements, sign-offs, and auditor wording.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>User chooses</strong>
+              <p>Uses the checklist but edits reviewer language again.</p>
+            </div>
+            <div class="flow-cell">
+              <strong>CS follows up</strong>
+              <p>Calibrate sign-off language before expanding the close workflow.</p>
             </div>
           </div>
-          <div class="proof">
-            <span class="row-label">Next Cycle Test</span>
-            <strong>Close starts with support</strong>
-            <span>Reviewer wording carries forward.</span>
-          </div>
-          <span class="status-chip info">Still calibrating</span>
           <div class="nudge-card">
             <div class="nudge-panel">
               <div class="nudge-topbar">
