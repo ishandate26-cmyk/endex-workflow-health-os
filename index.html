@@ -362,6 +362,35 @@
       gap: 10px;
     }
 
+    .nudge-guide {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0 14px;
+    }
+
+    .nudge-guide div {
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .nudge-guide strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 11.5px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .nudge-guide p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
     .workflow-row {
       display: grid;
       grid-template-columns: 260px minmax(360px, 1.2fr) minmax(300px, .9fr) 150px;
@@ -476,9 +505,9 @@
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
-      gap: 14px;
+      gap: 12px;
       margin-top: 2px;
-      padding: 14px;
+      padding: 12px;
       border: 1px solid #d7e2dc;
       border-radius: 10px;
       background:
@@ -598,28 +627,30 @@
 
     .cs-signal {
       padding: 13px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--green);
       border-radius: 10px;
-      background: #071018;
-      color: #eff6f3;
+      background: #fff;
+      color: var(--ink);
       min-height: 100%;
     }
 
     .cs-signal .row-label {
-      color: rgba(239, 246, 243, .68);
+      color: var(--muted);
       margin-bottom: 8px;
     }
 
     .cs-signal strong {
       display: block;
       margin-bottom: 8px;
-      color: #fff;
+      color: var(--ink);
       font-size: 14px;
       line-height: 1.25;
     }
 
     .cs-signal p {
       margin: 0;
-      color: rgba(239, 246, 243, .76);
+      color: var(--muted);
       font-size: 12.5px;
     }
 
@@ -758,6 +789,7 @@
       .metrics { grid-template-columns: 1fr 1fr; }
       .stage-guide { grid-template-columns: 1fr; }
       .examples { grid-template-columns: 1fr; }
+      .nudge-guide { grid-template-columns: 1fr; }
       .workflow-row { grid-template-columns: 1fr; }
       .nudge-card { grid-template-columns: 1fr; }
       .nudge-columns { grid-template-columns: 1fr; }
@@ -914,8 +946,22 @@
     </section>
 
     <section>
-      <h2>What CS Should Make Concrete</h2>
+      <h2>How the Nudge Becomes a CS Signal</h2>
       <p class="caption">CS should turn Endex’s existing primitives into a deployed workflow: pick one recurring customer process, encode the customer-specific context, and test whether the next cycle starts faster.</p>
+      <div class="nudge-guide" aria-label="How to read the workflow nudge cards">
+        <div>
+          <strong>1. Detect</strong>
+          <p>Endex recognizes a recurring workbook or workflow family.</p>
+        </div>
+        <div>
+          <strong>2. Nudge</strong>
+          <p>The user sees saved context, new exceptions, and clear choices.</p>
+        </div>
+        <div>
+          <strong>3. Intervene</strong>
+          <p>CS uses the response to fix the blocker before the next cycle.</p>
+        </div>
+      </div>
       <div class="workflow-list">
         <article class="workflow-row with-nudge good">
           <div class="workflow-name">
