@@ -6,28 +6,31 @@
   <title>Endex CS Tracking Mock</title>
   <style>
     :root {
-      --ink: #11161a;
-      --muted: #68737f;
-      --line: #d8dee3;
-      --soft: #f7f8f8;
-      --accent: #214a42;
-      --green: #2f6658;
-      --green-rgb: 47, 102, 88;
-      --blue: #64717f;
-      --blue-rgb: 100, 113, 127;
-      --gold: #927343;
-      --gold-rgb: 146, 115, 67;
-      --red: #9e6158;
-      --red-rgb: 158, 97, 88;
-      --wait: #6d6a5f;
-      --wait-rgb: 109, 106, 95;
+      --ink: #17130f;
+      --muted: #6f6558;
+      --line: #d9d1bf;
+      --soft: #f6f1e8;
+      --paper: #fbf8f1;
+      --paper-strong: #fffdf8;
+      --section: #ede7d8;
+      --accent: #126b4d;
+      --green: #126b4d;
+      --green-rgb: 18, 107, 77;
+      --blue: #64706a;
+      --blue-rgb: 100, 112, 106;
+      --gold: #b56842;
+      --gold-rgb: 181, 104, 66;
+      --red: #8a4f45;
+      --red-rgb: 138, 79, 69;
+      --wait: #7a6f62;
+      --wait-rgb: 122, 111, 98;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: #f5f6f6;
+      background: radial-gradient(120% 70% at 50% 110%, rgba(var(--green-rgb), .08), transparent 55%), #f1ece1;
       color: var(--ink);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.35;
@@ -126,7 +129,7 @@
       font-size: 12px;
       font-weight: 720;
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--paper-strong);
     }
 
     .box {
@@ -158,7 +161,7 @@
       padding: 14px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #fff;
+      background: var(--paper-strong);
       min-height: 94px;
       position: relative;
       overflow: hidden;
@@ -175,7 +178,7 @@
     .metric.good,
     .metric.info,
     .metric.warn,
-    .metric.bad { background: #fff; }
+    .metric.bad { background: var(--paper-strong); }
 
     .metric.good::before { background: var(--green); }
     .metric.info::before { background: var(--blue); }
@@ -291,7 +294,7 @@
     }
 
     .gridline { stroke: var(--line); stroke-width: 1; }
-    .path { fill: none; stroke: #cfd7de; stroke-width: 3; stroke-linecap: round; }
+    .path { fill: none; stroke: #d5cdbb; stroke-width: 3; stroke-linecap: round; }
     .path.good { stroke: rgba(var(--green-rgb), .24); }
     .path.warn { stroke: rgba(var(--gold-rgb), .22); }
     .path.bad { stroke: rgba(var(--red-rgb), .22); }
@@ -299,7 +302,7 @@
     .path.waiting { stroke: rgba(var(--wait-rgb), .22); }
 
     .dot {
-      stroke: #fff;
+      stroke: var(--paper-strong);
       stroke-width: 2;
     }
 
@@ -310,7 +313,7 @@
     .dot.waiting { fill: var(--wait); }
 
     .callout {
-      fill: #fff;
+      fill: var(--paper-strong);
       stroke: var(--line);
       stroke-width: 1;
       rx: 8;
@@ -354,13 +357,13 @@
     .heat .row-head {
       color: var(--ink);
       font-weight: 740;
-      background: #fff;
+      background: var(--paper-strong);
     }
 
-    .cell-strong { background: rgba(var(--green-rgb), .07); color: #295548 !important; font-weight: 720; }
-    .cell-medium { background: rgba(var(--blue-rgb), .07); color: #4f5a66 !important; font-weight: 720; }
-    .cell-watch { background: rgba(var(--gold-rgb), .08); color: #6d522d !important; font-weight: 720; }
-    .cell-risk { background: rgba(var(--red-rgb), .08); color: #784a43 !important; font-weight: 720; }
+    .cell-strong { background: rgba(var(--green-rgb), .07); color: #17523e !important; font-weight: 720; }
+    .cell-medium { background: rgba(var(--blue-rgb), .08); color: #4f5b54 !important; font-weight: 720; }
+    .cell-watch { background: rgba(var(--gold-rgb), .1); color: #74482f !important; font-weight: 720; }
+    .cell-risk { background: rgba(var(--red-rgb), .09); color: #704039 !important; font-weight: 720; }
 
     .examples {
       display: grid;
@@ -376,9 +379,9 @@
     .nudge-section {
       margin-top: 34px;
       padding: 22px;
-      border: 1px solid #d1d8d3;
+      border: 1px solid #d8cfbb;
       border-radius: 14px;
-      background: #eef1ee;
+      background: var(--section);
     }
 
     .nudge-section h2 {
@@ -386,7 +389,7 @@
     }
 
     .nudge-section .caption {
-      color: #5d6a65;
+      color: var(--muted);
     }
 
     .nudge-guide {
@@ -400,7 +403,7 @@
       padding: 12px 13px;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: #fbfbfa;
+      background: var(--paper);
     }
 
     .nudge-guide strong {
@@ -423,8 +426,8 @@
       padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #fafbfb;
-      box-shadow: 0 6px 18px rgba(7, 16, 24, .04);
+      background: var(--paper);
+      box-shadow: 0 10px 26px rgba(42, 37, 32, .06);
       position: relative;
       overflow: hidden;
     }
@@ -469,7 +472,7 @@
       margin: 12px 0;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: #fff;
+      background: var(--paper-strong);
       overflow: hidden;
     }
 
@@ -547,7 +550,7 @@
       padding: 7px 10px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--paper-strong);
       color: var(--ink);
       font-size: 12px;
       font-weight: 780;
@@ -576,14 +579,14 @@
       padding: 12px;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: #fff;
+      background: var(--paper-strong);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
     }
 
     .nudge-panel {
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: #fff;
+      background: var(--paper-strong);
       overflow: hidden;
     }
 
@@ -594,10 +597,10 @@
       gap: 12px;
       padding: 10px 12px;
       border-bottom: 1px solid var(--line);
-      background: #f7f8f9;
+      background: #f5efe5;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size: 11px;
-      color: #46545d;
+      color: #62594d;
     }
 
     .nudge-topbar strong {
@@ -633,13 +636,13 @@
       padding: 10px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #fff;
+      background: var(--paper-strong);
     }
 
     .nudge-box.review {
-      background: #fff;
-      border-color: rgba(var(--gold-rgb), .28);
-      box-shadow: inset 3px 0 0 rgba(var(--gold-rgb), .18);
+      background: #fffaf0;
+      border-color: rgba(var(--gold-rgb), .26);
+      box-shadow: inset 3px 0 0 rgba(var(--gold-rgb), .2);
     }
 
     .nudge-box strong {
@@ -678,7 +681,7 @@
       padding: 7px 10px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #fff;
+      background: var(--paper-strong);
       color: var(--ink);
       font-size: 12px;
       font-weight: 720;
@@ -695,7 +698,7 @@
       border: 1px solid var(--line);
       border-left: 4px solid var(--accent);
       border-radius: 10px;
-      background: #fbfcfc;
+      background: var(--paper);
       color: var(--ink);
       min-height: 100%;
     }
@@ -723,7 +726,7 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 16px;
-      background: #fff;
+      background: var(--paper-strong);
     }
 
     .example-card h3 {
@@ -754,7 +757,7 @@
     .step.good,
     .step.info,
     .step.warn,
-    .step.bad { background: #fff; }
+    .step.bad { background: var(--paper-strong); }
 
     .step strong {
       font-size: 11px;
@@ -818,7 +821,7 @@
       align-items: center;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: #fff;
+      background: var(--paper-strong);
       overflow: hidden;
     }
 
@@ -826,7 +829,7 @@
       min-height: 86px;
       padding: 14px;
       border-right: 1px solid var(--line);
-      background: linear-gradient(180deg, #fff 0%, #f9fbfa 100%);
+      background: linear-gradient(180deg, var(--paper-strong) 0%, #f6f1e8 100%);
     }
 
     .loop div:last-child { border-right: 0; }
