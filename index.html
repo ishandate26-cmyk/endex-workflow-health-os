@@ -127,7 +127,7 @@
 
     .console {
       display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
       border: 1px solid rgba(16, 36, 31, .2);
       border-radius: 28px;
       overflow: hidden;
@@ -409,6 +409,7 @@
 
     .queue-list {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       padding: 14px;
     }
@@ -455,7 +456,7 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .heat-title strong {
@@ -476,14 +477,14 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 6px;
+      gap: 7px;
     }
 
     .heat-key {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 7px;
+      padding: 5px 8px;
       border: 1px solid var(--dark-line);
       border-radius: 999px;
       color: rgba(255, 253, 248, .66);
@@ -506,7 +507,7 @@
 
     .heat-row {
       display: grid;
-      grid-template-columns: 150px repeat(4, 1fr);
+      grid-template-columns: 150px repeat(4, minmax(92px, 1fr));
       gap: 6px;
       align-items: center;
       margin-bottom: 7px;
@@ -853,10 +854,10 @@
       .dashboard-grid,
       .matrix,
       .excel-shell { grid-template-columns: 1fr; }
-      .rail { display: none; }
       .metrics { grid-template-columns: repeat(2, 1fr); }
       .contract { grid-template-columns: 1fr; }
       .status { justify-self: start; }
+      .queue-list { grid-template-columns: 1fr; }
       .sheet-table { width: 100%; }
       .nudge {
         position: static;
@@ -901,33 +902,16 @@
       </div>
 
       <div class="console">
-        <aside class="rail">
-          <div class="brand">
-            <span class="mark"></span>
-            <span>Endex CS</span>
-          </div>
-          <nav class="nav" aria-label="Mock navigation">
-            <span class="active">Deployments</span>
-            <span>Rules</span>
-            <span>Nudges</span>
-            <span>Accounts</span>
-            <span>GTM proof</span>
-          </nav>
-          <div class="rail-note">
-            CS is not asking “did usage happen?” It is asking “did the next real workflow get easier?”
-          </div>
-        </aside>
-
         <div class="console-main">
           <div class="console-top">
             <div class="console-title">
               <span>Enterprise pilot cohort / week 3</span>
-              <h3>Workflow contracts under deployment</h3>
+              <h3>Internal workflow deployment review</h3>
             </div>
             <div class="top-pills">
               <span class="pill">2 workflows selected</span>
               <span class="pill">5 rules captured</span>
-              <span class="pill">3 CS actions open</span>
+              <span class="pill">2 CS actions open</span>
             </div>
           </div>
 
@@ -948,7 +932,7 @@
               <p>July budget review and next PortCo package.</p>
             </div>
             <div class="metric">
-              <b>3</b>
+              <b>2</b>
               <span>CS actions</span>
               <p>Specific fixes, not generic check-ins.</p>
             </div>
@@ -985,7 +969,7 @@
                     <span class="rule">Integration add-back needs partner approval</span>
                     <span class="rule">Covenant headroom formula</span>
                   </div>
-                  <span class="status watch">Retest</span>
+                  <span class="status watch">Owner input</span>
                 </article>
               </div>
             </div>
@@ -1006,11 +990,6 @@
                   <small>PE portfolio reporting</small>
                   <p>Ask deal partner whether systems integration can ever be included in adjusted EBITDA.</p>
                 </article>
-                <article class="queue-card ready">
-                  <h4>Package GTM proof</h4>
-                  <small>After retest</small>
-                  <p>Use second-cycle success only after the customer stops correcting the same rule.</p>
-                </article>
               </div>
             </div>
           </div>
@@ -1019,43 +998,36 @@
             <div class="panel heatmap">
               <div class="heat-title">
                 <div>
-                  <strong>Deployment sequence by workflow</strong>
-                  <span>Read left to right. A workflow only advances after the prior step holds.</span>
+                  <strong>Workflow step tracker</strong>
+                  <span>Read left to right. A step only turns green after the prior step passes.</span>
                 </div>
                 <div class="heat-legend" aria-label="Heatmap legend">
-                  <span class="heat-key good">complete</span>
-                  <span class="heat-key watch">in review</span>
+                  <span class="heat-key good">passed</span>
+                  <span class="heat-key watch">needs owner</span>
                   <span class="heat-key bad">blocked</span>
-                  <span class="heat-key">waiting</span>
+                  <span class="heat-key">not started</span>
                 </div>
               </div>
               <div class="heat-row header">
                 <span>Workflow</span>
-                <span>Source mapping</span>
-                <span>Rule definition</span>
-                <span>User correction</span>
-                <span>Next-cycle proof</span>
+                <span>1. Source mapped</span>
+                <span>2. Rule locked</span>
+                <span>3. User accepted</span>
+                <span>4. Next run proved</span>
               </div>
               <div class="heat-row">
-                <span>HVAC budget</span>
-                <i class="heat-cell bad" title="Blocked: account 4025 mapped incorrectly"></i>
-                <i class="heat-cell" title="Waiting: rule definition cannot advance until mapping is fixed"></i>
-                <i class="heat-cell" title="Waiting: user correction cannot advance until rule is locked"></i>
-                <i class="heat-cell" title="Waiting: July proof comes after the rule is retested"></i>
+                <span>HVAC budget review</span>
+                <i class="heat-cell bad"></i>
+                <i class="heat-cell"></i>
+                <i class="heat-cell"></i>
+                <i class="heat-cell"></i>
               </div>
               <div class="heat-row">
-                <span>PE reporting</span>
-                <i class="heat-cell good" title="Complete: source package recognized"></i>
-                <i class="heat-cell watch" title="In review: add-back policy needs partner approval"></i>
-                <i class="heat-cell" title="Waiting: correction step depends on rule approval"></i>
-                <i class="heat-cell" title="Waiting: next package becomes the proof point"></i>
-              </div>
-              <div class="heat-row">
-                <span>Accounting close</span>
-                <i class="heat-cell good" title="Complete: support files recognized"></i>
-                <i class="heat-cell good" title="Complete: close checklist carried forward"></i>
-                <i class="heat-cell watch" title="In review: controller wording still needs calibration"></i>
-                <i class="heat-cell" title="Waiting: next close has not been tested"></i>
+                <span>PE portfolio reporting</span>
+                <i class="heat-cell good"></i>
+                <i class="heat-cell watch"></i>
+                <i class="heat-cell"></i>
+                <i class="heat-cell"></i>
               </div>
             </div>
 
