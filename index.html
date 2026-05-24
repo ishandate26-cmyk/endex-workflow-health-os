@@ -881,9 +881,9 @@
     <header>
       <div>
         <p class="eyebrow">Internal CS Mockup</p>
-        <h1>Enterprise Workflow Health Dashboard</h1>
+        <h1>Enterprise Workflow Deployment Board</h1>
         <p class="subhead">
-          A visual sketch of how Customer Success could deploy Endex's existing Excel-native primitives, create Product feedback, and produce GTM proof during an enterprise pilot.
+          A visual sketch of the CS work behind an enterprise pilot: pick one recurring Excel process, define what should carry forward, test the second run, and turn failures into Product feedback or GTM proof.
         </p>
       </div>
       <div class="note">
@@ -896,28 +896,28 @@
       <div class="metric good">
         <span class="value">1</span>
         <span class="label">Embedded</span>
-        <p>Next cycle was faster and reviewer format held.</p>
+        <p>The same workflow got faster and reviewer output held.</p>
       </div>
       <div class="metric info">
         <span class="value">1</span>
         <span class="label">Still Calibrating</span>
-        <p>Workflow repeated, but saved context still needed corrections.</p>
+        <p>The workflow repeated, but CS still has to fix customer-specific context.</p>
       </div>
       <div class="metric bad">
         <span class="value">1</span>
         <span class="label">Blocked</span>
-        <p>Next cycle failed because a core mapping was wrong.</p>
+        <p>The second cycle broke on a specific mapping, source, or reviewer issue.</p>
       </div>
       <div class="metric waiting">
         <span class="value">3</span>
-        <span class="label">Needs CS Action</span>
-        <p>Retest, fix mapping, or wait for second-cycle proof.</p>
+        <span class="label">Open CS Work</span>
+        <p>Deployment actions waiting: retest, fix context, or wait for proof.</p>
       </div>
     </section>
 
     <section>
       <h2>Next-Cycle Test</h2>
-      <p class="caption">Each row asks the CS question that matters in a pilot: did the next cycle of the workflow get easier because Endex retained the right context?</p>
+      <p class="caption">Each row tracks deployment progress, not generic engagement: did a real recurring Excel workflow get easier on the second run because Endex retained the right context?</p>
       <div class="legend">
         <span><i class="swatch good"></i>embedded</span>
         <span><i class="swatch info"></i>still calibrating</span>
@@ -926,9 +926,9 @@
       </div>
       <div class="visual">
         <svg viewBox="0 0 1120 520" role="img" aria-label="Workflow memory map">
-          <text class="axis" x="260" y="28">detect</text>
-          <text class="axis" x="410" y="28">encode</text>
-          <text class="axis" x="560" y="28">rerun</text>
+          <text class="axis" x="260" y="28">select</text>
+          <text class="axis" x="410" y="28">contract</text>
+          <text class="axis" x="560" y="28">retest</text>
           <text class="axis" x="710" y="28">review</text>
           <text class="axis" x="860" y="28">embed</text>
 
@@ -986,8 +986,8 @@
           <text class="callout-text" x="944" y="361">Still calibrating</text>
           <text class="callout-muted" x="944" y="378">close workbook</text>
 
-          <text class="small" x="260" y="490">real workbook</text>
-          <text class="small" x="402" y="490">context encoded</text>
+          <text class="small" x="260" y="490">workflow picked</text>
+          <text class="small" x="402" y="490">contract written</text>
           <text class="small" x="552" y="490">next run</text>
           <text class="small" x="698" y="490">reviewer edits</text>
           <text class="small" x="852" y="490">embedded workflow</text>
@@ -995,20 +995,20 @@
       </div>
       <div class="stage-guide" aria-label="Plain English stage definitions">
         <div>
-          <strong>Map</strong>
-          <p>Endex sees a real workbook family, not a one-off prompt.</p>
+          <strong>Select</strong>
+          <p>CS picks one recurring process worth owning.</p>
         </div>
         <div>
-          <strong>Encode</strong>
-          <p>CS helps encode mappings, thresholds, sources, and format.</p>
+          <strong>Contract</strong>
+          <p>Stable setup, judgment items, reviewer, and output are written down.</p>
         </div>
         <div>
-          <strong>Rerun</strong>
-          <p>The next workbook tests whether setup time actually drops.</p>
+          <strong>Retest</strong>
+          <p>The next workbook tests whether the setup actually helps.</p>
         </div>
         <div>
           <strong>Review</strong>
-          <p>A PM, CFO, controller, or partner edits or approves the output.</p>
+          <p>A PM, CFO, controller, or partner edits, rejects, or approves it.</p>
         </div>
         <div>
           <strong>Embed</strong>
@@ -1018,19 +1018,19 @@
     </section>
 
     <section class="nudge-section">
-      <h2>From Excel Nudge to CS Follow-up</h2>
-      <p class="caption">Read each card left to right. The point is not to track vague engagement; it is to see whether Endex made the next real Excel run easier.</p>
+      <h2>How a Customer Run Becomes CS Work</h2>
+      <p class="caption">Read each card left to right. The nudge is not the novel part; the novel part is the deployment loop around it: CS sees what the user reused, what they corrected, and what has to be fixed before the next cycle.</p>
       <div class="nudge-guide" aria-label="How to read the workflow nudge cards">
         <div>
-          <strong>1. User starts</strong>
+          <strong>1. Customer starts</strong>
           <p>A real workbook or source folder opens.</p>
         </div>
         <div>
-          <strong>2. Endex offers</strong>
+          <strong>2. Setup checkpoint</strong>
           <p>Reusable setup is separated from judgment calls.</p>
         </div>
         <div>
-          <strong>3. User chooses</strong>
+          <strong>3. Customer chooses</strong>
           <p>The analyst accepts, edits, rejects, or starts blank.</p>
         </div>
         <div>
@@ -1049,15 +1049,15 @@
           </div>
           <div class="workflow-flow">
             <div class="flow-cell">
-              <strong>User starts</strong>
+              <strong>Customer starts</strong>
               <p>Analyst opens an AMD earnings update after previously using Endex on NVDA.</p>
             </div>
             <div class="flow-cell">
-              <strong>Endex offers</strong>
+              <strong>Setup checkpoint</strong>
               <p>Reuse source order, model checks, citation style, and PM-summary format.</p>
             </div>
             <div class="flow-cell">
-              <strong>User chooses</strong>
+              <strong>Customer chooses</strong>
               <p>Accepts the setup, then reviews margin bridge, capex, guidance, and thesis changes.</p>
             </div>
             <div class="flow-cell">
@@ -1101,8 +1101,8 @@
             </div>
             <div class="cs-signal">
               <span class="row-label">CS signal created</span>
-              <strong>Analyst accepted saved context and exported PM summary.</strong>
-              <p>Mark as embedded. Expansion conversation can reference a real second-cycle workflow, not generic usage.</p>
+              <strong>Analyst accepted saved context and exported a PM-ready summary.</strong>
+              <p>Mark as embedded. GTM can point to a real second-cycle workflow, not generic usage volume.</p>
             </div>
           </div>
         </article>
@@ -1117,15 +1117,15 @@
           </div>
           <div class="workflow-flow">
             <div class="flow-cell">
-              <strong>User starts</strong>
+              <strong>Customer starts</strong>
               <p>CFO imports the June ERP export into the monthly budget review workbook.</p>
             </div>
             <div class="flow-cell">
-              <strong>Endex offers</strong>
+              <strong>Setup checkpoint</strong>
               <p>Reuse May’s COA mapping, variance thresholds, board format, and owner language.</p>
             </div>
             <div class="flow-cell">
-              <strong>User chooses</strong>
+              <strong>Customer chooses</strong>
               <p>Applies the setup but corrects repair revenue mapping again.</p>
             </div>
             <div class="flow-cell">
@@ -1170,7 +1170,7 @@
             <div class="cs-signal">
               <span class="row-label">CS signal created</span>
               <strong>Repair revenue was corrected again.</strong>
-              <p>Intervene before next close: lock the mapping with CFO and controller instead of sending a generic check-in.</p>
+              <p>Intervene before next month: lock the service-versus-repair treatment with the CFO and controller instead of sending a generic check-in.</p>
             </div>
           </div>
         </article>
@@ -1179,21 +1179,21 @@
           <div class="workflow-header">
             <div class="workflow-name">
               <h3>Private markets deal team</h3>
-              <span>CIM + LBO model → first IC memo draft</span>
+              <span>Prior deal memo → next live deal</span>
             </div>
             <span class="status-chip waiting">Waiting for proof</span>
           </div>
           <div class="workflow-flow">
             <div class="flow-cell">
-              <strong>User starts</strong>
-              <p>Associate opens a new CIM and LBO model to draft the first IC memo.</p>
+              <strong>Customer starts</strong>
+              <p>Associate opens a new CIM and LBO model for the next platform or add-on deal.</p>
             </div>
             <div class="flow-cell">
-              <strong>Endex offers</strong>
+              <strong>Setup checkpoint</strong>
               <p>Reuse memo section order, diligence source list, and model QA checks.</p>
             </div>
             <div class="flow-cell">
-              <strong>User chooses</strong>
+              <strong>Customer chooses</strong>
               <p>Can reuse structure, but must review add-backs, churn, debt terms, and thesis.</p>
             </div>
             <div class="flow-cell">
@@ -1253,15 +1253,15 @@
           </div>
           <div class="workflow-flow">
             <div class="flow-cell">
-              <strong>User starts</strong>
+              <strong>Customer starts</strong>
               <p>Controller opens the next close workbook and support-file folder.</p>
             </div>
             <div class="flow-cell">
-              <strong>Endex offers</strong>
+              <strong>Setup checkpoint</strong>
               <p>Reuse recurring account list, support requirements, sign-offs, and auditor wording.</p>
             </div>
             <div class="flow-cell">
-              <strong>User chooses</strong>
+              <strong>Customer chooses</strong>
               <p>Uses the checklist but edits reviewer language again.</p>
             </div>
             <div class="flow-cell">
@@ -1317,24 +1317,25 @@
       <h2>Operating Loop</h2>
       <div class="loop">
         <div>
-        <strong>Map</strong>
-        <p>Workbook families, tabs, imports, formulas, reviewers.</p>
-      </div>
-      <div>
-        <strong>Encode</strong>
-        <p>Use existing Endex primitives to save the reusable context.</p>
-      </div>
-      <div>
-        <strong>Rerun</strong>
-        <p>Test whether the next cycle starts faster.</p>
-      </div>
-      <div>
-        <strong>Intervene</strong>
-        <p>Fix the specific blocker when the next cycle breaks.</p>
-      </div>
-      <div>
-        <strong>Expand</strong>
-        <p>Move only when one workflow is actually embedded.</p>
+          <strong>Select</strong>
+          <p>One recurring workflow with a real owner and deadline.</p>
+        </div>
+        <div>
+          <strong>Contract</strong>
+          <p>Carry-forward context, judgment items, reviewer, output.</p>
+        </div>
+        <div>
+          <strong>Retest</strong>
+          <p>Watch what happens when the process repeats.</p>
+        </div>
+        <div>
+          <strong>Intervene</strong>
+          <p>Fix the specific blocker with the right stakeholder.</p>
+        </div>
+        <div>
+          <strong>Expand</strong>
+          <p>Move only after one workflow is actually embedded.</p>
+        </div>
       </div>
     </section>
   </main>
