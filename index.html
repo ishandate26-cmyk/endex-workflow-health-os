@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Endex CS Deployment Console</title>
+  <title>Endex CS Workflow Deployment Console</title>
   <style>
     :root {
       --ink: #15120e;
@@ -258,46 +258,6 @@
       background: var(--green);
     }
 
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .metric {
-      min-height: 102px;
-      padding: 15px;
-      border: 1px solid var(--dark-line);
-      border-radius: 18px;
-      background: rgba(255, 253, 248, .08);
-    }
-
-    .metric b {
-      display: block;
-      margin-bottom: 8px;
-      color: #fffdf8;
-      font-size: 30px;
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-
-    .metric span {
-      display: block;
-      margin-bottom: 5px;
-      color: rgba(255, 253, 248, .82);
-      font-size: 11px;
-      font-weight: 820;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .metric p {
-      margin: 0;
-      color: rgba(255, 253, 248, .62);
-      font-size: 12px;
-    }
-
     .dashboard-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.12fr) minmax(330px, .88fr);
@@ -443,7 +403,7 @@
     .matrix {
       margin-top: 14px;
       display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
       gap: 14px;
     }
 
@@ -507,7 +467,7 @@
 
     .heat-row {
       display: grid;
-      grid-template-columns: 150px repeat(4, minmax(92px, 1fr));
+      grid-template-columns: 170px repeat(4, minmax(108px, 1fr));
       gap: 6px;
       align-items: center;
       margin-bottom: 7px;
@@ -854,7 +814,6 @@
       .dashboard-grid,
       .matrix,
       .excel-shell { grid-template-columns: 1fr; }
-      .metrics { grid-template-columns: repeat(2, 1fr); }
       .contract { grid-template-columns: 1fr; }
       .status { justify-self: start; }
       .queue-list { grid-template-columns: 1fr; }
@@ -868,7 +827,6 @@
 
     @media (max-width: 680px) {
       h1 { font-size: 40px; }
-      .metrics,
       .nudge-cols { grid-template-columns: 1fr; }
       .heat-row { grid-template-columns: 1fr; }
       .heat-legend { justify-content: flex-start; }
@@ -881,9 +839,9 @@
     <header class="hero">
       <div>
         <p class="eyebrow">Endex CS Operating Artifact</p>
-        <h1>Internal deployment console, not a customer dashboard.</h1>
+        <h1>Workflow Deployment Console for Endex CS</h1>
         <p class="subhead">
-          The top half shows what Endex CS would use internally to turn messy recurring Excel work into tested customer-specific rules. The bottom half shows the much simpler nudge the customer would see inside Excel.
+          A mock internal view for Customer Success to improve recurring Excel workflows across pilot accounts. It tracks the customer-specific rules, where the next run breaks, and the account action needed before the workflow repeats.
         </p>
       </div>
       <aside class="note">
@@ -896,8 +854,8 @@
       <div class="section-head">
         <div>
           <p class="label">Part 1 - Endex internal view</p>
-          <h2>CS Deployment Console</h2>
-          <p class="caption">This is for the Endex team. It tracks which workflow was selected, which customer-specific rules were captured, what broke on the second run, and what CS should fix next.</p>
+          <h2>Workflow Step Tracker Across Pilot Accounts</h2>
+          <p class="caption">Each row is one customer workflow, not generic usage. CS reads it left to right: source mapped, rule locked, user accepted, next run proved.</p>
         </div>
       </div>
 
@@ -906,43 +864,20 @@
           <div class="console-top">
             <div class="console-title">
               <span>Enterprise pilot cohort / week 3</span>
-              <h3>Internal workflow deployment review</h3>
+              <h3>Pilot account workflow tracker</h3>
             </div>
             <div class="top-pills">
-              <span class="pill">2 workflows selected</span>
-              <span class="pill">5 rules captured</span>
+              <span class="pill">HVAC budget review</span>
+              <span class="pill">PE portfolio reporting</span>
               <span class="pill">2 CS actions open</span>
-            </div>
-          </div>
-
-          <div class="metrics">
-            <div class="metric">
-              <b>2</b>
-              <span>Contracts</span>
-              <p>Budget review and PE portfolio reporting.</p>
-            </div>
-            <div class="metric">
-              <b>5</b>
-              <span>Rules</span>
-              <p>Mappings, definitions, thresholds, and approvals.</p>
-            </div>
-            <div class="metric">
-              <b>2</b>
-              <span>Second-run tests</span>
-              <p>July budget review and next PortCo package.</p>
-            </div>
-            <div class="metric">
-              <b>2</b>
-              <span>CS actions</span>
-              <p>Specific fixes, not generic check-ins.</p>
             </div>
           </div>
 
           <div class="dashboard-grid">
             <div class="panel">
               <div class="panel-head">
-                <strong>Workflow contracts</strong>
-                <span>stable rules CS is deploying</span>
+                <strong>Customer-specific rules being deployed</strong>
+                <span>the exact rules CS wants to survive the next run</span>
               </div>
               <div class="contracts">
                 <article class="contract">
@@ -969,14 +904,14 @@
                     <span class="rule">Integration add-back needs partner approval</span>
                     <span class="rule">Covenant headroom formula</span>
                   </div>
-                  <span class="status watch">Owner input</span>
+                  <span class="status watch">Needs owner input</span>
                 </article>
               </div>
             </div>
 
             <div class="panel queue-panel">
               <div class="panel-head">
-                <strong>CS action queue</strong>
+                <strong>Customer Success action queue</strong>
                 <span>next account-level work</span>
               </div>
               <div class="queue-list">
@@ -999,7 +934,7 @@
               <div class="heat-title">
                 <div>
                   <strong>Workflow step tracker</strong>
-                  <span>Read left to right. A step only turns green after the prior step passes.</span>
+                  <span>Read left to right. A step only advances after the prior step passes.</span>
                 </div>
                 <div class="heat-legend" aria-label="Heatmap legend">
                   <span class="heat-key good">passed</span>
